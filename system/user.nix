@@ -24,6 +24,7 @@
         age
         sops
         unzip
+        zip
       ];
 
       home.stateVersion = "24.11";
