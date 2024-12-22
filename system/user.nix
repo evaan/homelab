@@ -25,6 +25,7 @@
         sops
         unzip
         zip
+        wget
       ];
 
       home.stateVersion = "24.11";
