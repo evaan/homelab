@@ -10,7 +10,7 @@
       WATCHTOWER_CLEANUP = "true";
     };
     volumes = [
-      "/var/run/podman/podman.sock:/var/run/docker.sock"
+      "/var/run/docker.sock:/var/run/docker.sock"
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
