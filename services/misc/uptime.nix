@@ -9,7 +9,7 @@
     ];
   };
 
-  systemd.services."podman-uptime" = {
+  systemd.services."docker-uptime" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

@@ -16,7 +16,7 @@
     ];
   };
 
-  systemd.services."podman-duckdns" = {
+  systemd.services."docker-duckdns" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

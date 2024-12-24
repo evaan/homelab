@@ -9,7 +9,7 @@
     ];
   };
 
-  systemd.services."podman-homer" = {
+  systemd.services."docker-homer" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

@@ -9,7 +9,7 @@
     ];
   };
 
-  systemd.services."podman-vaultwarden" = {
+  systemd.services."docker-vaultwarden" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

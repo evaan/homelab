@@ -13,7 +13,7 @@
     ];
   };
 
-  systemd.services."podman-prowlarr" = {
+  systemd.services."docker-prowlarr" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

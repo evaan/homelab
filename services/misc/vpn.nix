@@ -15,7 +15,7 @@
     };
   };
 
-  systemd.services."podman-gluetun" = {
+  systemd.services."docker-gluetun" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

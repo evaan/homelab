@@ -10,7 +10,7 @@
     ];
   };
 
-  systemd.services."podman-adguard" = {
+  systemd.services."docker-adguard" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

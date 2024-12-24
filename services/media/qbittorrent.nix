@@ -20,7 +20,7 @@
     ];
   };
 
-    systemd.services."podman-qbittorrent" = {
+    systemd.services."docker-qbittorrent" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

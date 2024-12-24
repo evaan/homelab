@@ -14,7 +14,7 @@
     ];
   };
 
-    systemd.services."podman-lidarr" = {
+    systemd.services."docker-lidarr" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

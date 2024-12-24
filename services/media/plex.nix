@@ -15,7 +15,7 @@
     ];
   };
 
-  systemd.services."podman-plex" = {
+  systemd.services."docker-plex" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

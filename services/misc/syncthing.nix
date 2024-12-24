@@ -14,7 +14,7 @@
     ];
   };
 
-  systemd.services."podman-syncthing" = {
+  systemd.services."docker-syncthing" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

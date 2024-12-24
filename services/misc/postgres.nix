@@ -12,7 +12,7 @@
     ];
   };
 
-  systemd.services."podman-postgres" = {
+  systemd.services."docker-postgres" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };

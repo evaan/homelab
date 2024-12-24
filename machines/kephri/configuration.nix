@@ -69,18 +69,7 @@
 
   virtualisation = {
     containers.enable = true;
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = false;
-      autoPrune = {
-        enable = true;
-        dates = "weekly";
-        flags = [
-          "--filter-until=24h"
-          "--filter=label!=important"
-        ];
-      };
-    };
+    docker.enable = true;
+    oci-containers.backend = "docker";
   };
 }

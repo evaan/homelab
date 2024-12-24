@@ -13,7 +13,7 @@
     ];
   };
 
-  systemd.services."podman-tautulli" = {
+  systemd.services."docker-tautulli" = {
     serviceConfig = {
       Restart = lib.mkOverride 500 "always";
     };
