@@ -50,30 +50,8 @@
       bindkey "^[[1;3C" forward-word
       bindkey "^[[1;3D" backward-word
       bindkey "^[[3;3~" delete-word
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
     '';
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = false;
-      format = "$directory$character";
-      right_format = "$cmd_duration$username$hostname"; # TODO: Add git integration
-      character.success_symbol = "[❯](bold blue)";
-      directory.style = "bold purple";
-      cmd_duration.format = "[$duration]($style) ";
-      username = {
-        style_root = "fg:160";
-        style_user = "fg:242";
-        show_always = true;
-        format = "[$user]($style)";
-      };
-      hostname = {
-        ssh_only = false;
-        style = "fg:242";
-        format = "[@$hostname]($style)";
-      };
-    };
   };
 
   security.sudo.extraRules = [
