@@ -86,4 +86,6 @@
     docker.enable = true;
     oci-containers.backend = "docker";
   };
+
+  networking.firewall.trustedInterfaces = [ "docker0" ];
 }
