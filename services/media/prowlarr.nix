@@ -7,7 +7,6 @@
     dependsOn = [ "gluetun" ];
     extraOptions = [ "--network=container:gluetun" ];
     environment = {
-    ports = [ "9696:9696" ];
       PUID = "1000";
       PGID = "1000";
     };
