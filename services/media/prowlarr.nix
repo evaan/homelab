@@ -1,9 +1,13 @@
 { lib, ...}: {
+  imports = [ ../misc/gluetun.nix ];
+
   virtualisation.oci-containers.containers."prowlarr" = {
     image = "docker.io/linuxserver/prowlarr:latest";
     autoStart = true;
-    ports = [ "9696:9696" ];
+    dependsOn = [ "gluetun" ];
+    extraOptions = [ "--network=container:gluetun" ];
     environment = {
+    ports = [ "9696:9696" ];
       PUID = "1000";
       PGID = "1000";
     };

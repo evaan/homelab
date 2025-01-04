@@ -1,5 +1,5 @@
 { lib, ...}: {
-  imports = [ ../misc/vpn.nix ];
+  imports = [ ../misc/gluetun.nix ];
 
   virtualisation.oci-containers.containers."qbittorrent" = {
     image = "docker.io/linuxserver/qbittorrent:latest";
