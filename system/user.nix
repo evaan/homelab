@@ -26,6 +26,7 @@
         unzip
         zip
         wget
+        speedtest-cli
       ];
 
       home.stateVersion = "24.11";
