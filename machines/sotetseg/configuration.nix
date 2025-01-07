@@ -59,7 +59,7 @@
   programs.zsh.enable = true;
 
   fileSystems."/mnt/storage" = {
-    device = "192.168.2.2:/mnt/fatass/Data";
+    device = "192.168.2.3:/mnt/fatass/Data";
     fsType = "nfs";
     options = [
       "nfsvers=3" "rw" "sync" 
