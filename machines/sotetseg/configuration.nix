@@ -83,7 +83,10 @@
 
   virtualisation = {
     containers.enable = true;
-    docker.enable = true;
+    docker = {
+      enable = true;
+      enableNvidia = true;
+    }
     oci-containers.backend = "docker";
   };
 
