@@ -86,7 +86,7 @@
     docker = {
       enable = true;
       enableNvidia = true;
-    }
+    };
     oci-containers.backend = "docker";
   };
 
