@@ -14,49 +14,49 @@ in {
       }
     '';
     virtualHosts."sonarr.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.3:8989
+      reverse_proxy http://192.168.2.2:8989
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
       }
     '';
     virtualHosts."radarr.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.3:7878
+      reverse_proxy http://192.168.2.2:7878
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
       }
     '';
     virtualHosts."radarr4k.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.3:7879
+      reverse_proxy http://192.168.2.2:7879
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
       }
     '';
     virtualHosts."qbittorrent.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.3:8080
+      reverse_proxy http://192.168.2.2:8080
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
       }
     '';
     virtualHosts."prowlarr.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.3:9696
+      reverse_proxy http://192.168.2.2:9696
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
       }
     '';
     virtualHosts."tautulli.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.3:8181
+      reverse_proxy http://192.168.2.2:8181
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
       }
     '';
     virtualHosts."lidarr.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.3:8686
+      reverse_proxy http://192.168.2.2:8686
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
@@ -75,7 +75,7 @@ in {
       }
     '';
     virtualHosts."truenas.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.4:80
+      reverse_proxy http://192.168.2.2:80
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
@@ -124,7 +124,7 @@ in {
       }
     '';
     virtualHosts."syncthing.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.3:8384
+      reverse_proxy http://192.168.2.2:8384
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
