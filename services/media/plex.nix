@@ -4,7 +4,7 @@
     autoStart = true;
     extraOptions = [
       "--runtime=nvidia"
-      "--device=nvidia.com/gpu=all"
+      "--gpus=all"
     ];
     ports = [ "32400:32400" "1900:1900/udp" "5353:5353/udp" "8324:8324" "32410:32410/udp" "32412-32414:32412-32414/udp" "32469:32469" ];
     environment = {
