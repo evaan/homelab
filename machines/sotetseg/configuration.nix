@@ -3,13 +3,14 @@
     ./hardware-configuration.nix
     ./../../system/sops.nix
     ./../../system/user.nix
-     ./../../services/media
-     ./../../services/misc/postgres.nix
-     ./../../services/misc/syncthing.nix
-     ./../../services/misc/watchtower.nix
-     ./../../services/misc/restic.nix
-     ./../../services/games/minecraft.nix
-     ./../../services/misc/prometheus.nix
+    ./../../services/media
+    ./../../services/misc/postgres.nix
+    ./../../services/misc/syncthing.nix
+    ./../../services/misc/watchtower.nix
+    ./../../services/misc/restic.nix
+    ./../../services/games/minecraft.nix
+    ./../../services/misc/prometheus.nix
+    ./../../services/misc/grafana.nix
   ];
 
   boot.loader = {
@@ -87,7 +88,7 @@
     containers.enable = true;
     docker.enable = true;
     docker.enableNvidia = true; #apparently this is depreciated but nothing else works?
-    docker.extraOptions = "--default-runtime=nvidia";
+    docker.extraOptions = "--default-runtime=runc";
     oci-containers.backend = "docker";
   };
 
