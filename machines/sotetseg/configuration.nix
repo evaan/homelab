@@ -11,7 +11,6 @@
     ./../../services/games/minecraft.nix
     ./../../services/misc/prometheus.nix
     ./../../services/misc/grafana.nix
-    ./../../services/misc/tailscale.nix
   ];
 
   boot.loader = {
@@ -45,6 +44,8 @@
       PermitRootLogin = "no";
     };
   };
+
+  services.tailscale.enable = true;
 
   networking = {
     interfaces.enp4s0.ipv4.addresses = [{
