@@ -62,18 +62,6 @@ in {
         protocols tls1.3
       }
     '';
-    virtualHosts."proxmox.home.evaan.dev".extraConfig = ''
-      reverse_proxy https://192.168.2.2:8006 {
-          transport http {
-            tls
-            tls_insecure_skip_verify
-          }
-      }
-
-      tls ${certloc}/cert.pem ${certloc}/key.pem {
-        protocols tls1.3
-      }
-    '';
     virtualHosts."truenas.home.evaan.dev".extraConfig = ''
       reverse_proxy http://192.168.2.2:80
 
