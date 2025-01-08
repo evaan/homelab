@@ -119,7 +119,7 @@ in {
       }
     '';
     virtualHosts."prometheus.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://http://192.168.2.2:9090
+      reverse_proxy http://192.168.2.2:9090
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
