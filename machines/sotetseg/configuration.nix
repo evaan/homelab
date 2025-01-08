@@ -84,6 +84,8 @@
   hardware.nvidia-container-toolkit.enable = true;
   hardware.graphics.enable32Bit = true;
 
+  systemd.enableUnifiedCgroupHierarchy = false;
+
   virtualisation = {
     containers.enable = true;
     docker.enable = true;
