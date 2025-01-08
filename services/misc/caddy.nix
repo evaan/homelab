@@ -118,7 +118,22 @@ in {
         protocols tls1.3
       }
     '';
+    virtualHosts."prometheus.home.evaan.dev".extraConfig = ''
+      reverse_proxy http://http://192.168.2.2:9090
+
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    '';
+    virtualHosts."grafana.home.evaan.dev".extraConfig = ''
+      reverse_proxy http://192.168.2.2:3000
+
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    ''; 
   };
+
 
   security.acme = {
     acceptTerms = true;
