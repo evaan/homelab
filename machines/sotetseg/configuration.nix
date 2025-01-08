@@ -9,6 +9,7 @@
      ./../../services/misc/watchtower.nix
      ./../../services/misc/restic.nix
      ./../../services/games/minecraft.nix
+     ./../../services/misc/prometheus.nix
   ];
 
   boot.loader = {
