@@ -63,7 +63,7 @@ in {
       }
     '';
     virtualHosts."truenas.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.2:80
+      reverse_proxy http://192.168.2.3:80
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
