@@ -11,6 +11,7 @@
     ./../../services/games/minecraft.nix
     ./../../services/misc/prometheus.nix
     ./../../services/misc/grafana.nix
+    ./../../services/misc/glances.nix
   ];
 
   boot.loader = {
