@@ -12,6 +12,7 @@
     ./../../services/misc/prometheus.nix
     ./../../services/misc/grafana.nix
     ./../../services/misc/glances.nix
+    ./../../services/misc/beszel.nix
   ];
 
   boot.loader = {
