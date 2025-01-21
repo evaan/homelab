@@ -27,6 +27,7 @@
         zip
         wget
         speedtest-cli
+        iperf3
       ];
 
       home.stateVersion = "24.11";
