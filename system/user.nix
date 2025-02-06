@@ -28,6 +28,7 @@
         wget
         speedtest-cli
         iperf3
+        dmidecode
       ];
 
       home.stateVersion = "24.11";
