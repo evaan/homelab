@@ -1,73 +1,98 @@
-{ config, lib, pkgs, ... }: {
-  users.users.evan = {
-    isNormalUser = true;
-    home = "/home/evan";
-    shell = pkgs.zsh; 
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPLdFa8eo+/mlCGxDx5X5Mc6SneH9FNEYbB5GY+lExOa"
-    ];
-    extraGroups = [ "docker" ];
+{ config, pkgs, ... }: {
+  imports = [
+    ./hardware-configuration.nix
+    ./../../system/sops.nix
+    ./../../system/user.nix
+    ./../../services/media
+    ./../../services/misc/postgres.nix
+    ./../../services/misc/syncthing.nix
+    ./../../services/misc/watchtower.nix
+    ./../../services/misc/restic.nix
+    ./../../services/games/minecraft.nix
+    ./../../services/misc/prometheus.nix
+    ./../../services/misc/grafana.nix
+  ];
+
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = false;
-    
-    users.evan = {
-      home.packages = with pkgs; [
-        neofetch
-        git
-        htop
-        vim
-        tmux
-        just
-        age
-        sops
-        unzip
-        zip
-        wget
-        speedtest-cli
-        iperf3
-        dmidecode
-      ];
+  system.stateVersion = "24.11";
+  networking.hostName = "sotetseg";
 
-      home.stateVersion = "24.11";
+  time.timeZone = "America/St_Johns";
 
-      home.sessionVariables = {
-        EDITOR = "vim";
-      };
+  nixpkgs.config.allowUnfree = true;
 
-      home.file.".hushlogin".text = "";
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+
+    settings = {
+      auto-optimise-store = true;
     };
   };
 
-  programs.zsh = {
+  services.openssh = {
     enable = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-    promptInit = ''
-      bindkey '^[[1;5C' forward-word
-      bindkey '^[[1;5D' backward-word
-      bindkey '^H' backward-kill-word
-      bindkey '^[[3;5~' kill-word
-      bindkey "^[[1;3C" forward-word
-      bindkey "^[[1;3D" backward-word
-      bindkey "^[[3;3~" delete-word
-      source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-      source ${pkgs.zsh-autocomplete}/share/zsh-syntax-highlighting/zsh-autocomplete.plugin.zsh
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-    '';
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+    };
   };
 
-  security.sudo.extraRules = [
-    {
-      users = [ "evan" ];
-      commands = [
-        {
-          command = "ALL";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
+  services.tailscale.enable = true;
+
+  networking = {
+    interfaces.enp4s0.ipv4.addresses = [{
+      address = "192.168.2.2";
+      prefixLength = 24;
+    }];
+    defaultGateway = {
+      address = "192.168.2.1";
+      interface = "enp4s0";
+    };
+    nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  };
+
+  users.users.root.shell = pkgs.zsh;
+  programs.zsh.enable = true;
+
+  fileSystems."/mnt/storage" = {
+    device = "192.168.2.3:/mnt/arceuus/Data";
+    fsType = "nfs";
+    options = [
+      "nfsvers=3" "rw" "sync" 
+      "rsize=8192" "wsize=8192" 
+      "nofail" "x-systemd.automount" 
+      "x-systemd.device-timeout=10"
+    ];
+  };
+
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  services.vscode-server.enable = true;
+
+  hardware.nvidia-container-toolkit.enable = true;
+  hardware.graphics.enable32Bit = true;
+
+  virtualisation = {
+    containers.enable = true;
+    docker.enable = true;
+    docker.enableNvidia = true; #apparently this is depreciated but nothing else works?
+    docker.extraOptions = "--default-runtime=runc";
+    oci-containers.backend = "docker";
+  };
+
+  networking.firewall.trustedInterfaces = [ "docker0" ];
 }
