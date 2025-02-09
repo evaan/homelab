@@ -5,7 +5,10 @@
     image = "docker.io/linuxserver/qbittorrent:latest";
     autoStart = true;
     dependsOn = [ "gluetun" ];
-    extraOptions = [ "--network=container:gluetun" ];
+    extraOptions = [
+      "--network=container:gluetun"
+      "--memory=4g"
+    ];
     environment = {
       PUID = "1000";
       PGID = "1000";
