@@ -1,8 +1,10 @@
 { lib, config, ... }: {
   virtualisation.oci-containers.containers."beszel-agent" = {
     image = "docker.io/henrygd/beszel-agent:latest";
-    autoStart = true;
-    ports = [ "45876:45876" ];
+    extraOptions = [
+      "--network=host"
+    ];
+    autoStart = true; 
     environmentFiles = [
       config.sops.secrets.beszel-agent-env.path
     ];
