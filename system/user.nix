@@ -53,7 +53,7 @@
       bindkey "^[[1;3C" forward-word
       bindkey "^[[1;3D" backward-word
       bindkey "^[[3;3~" delete-word
-      source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+      source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
       source ${pkgs.zsh-autocomplete}/share/zsh-syntax-highlighting/zsh-autocomplete.plugin.zsh
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
     '';
