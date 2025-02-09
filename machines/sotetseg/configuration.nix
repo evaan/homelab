@@ -88,9 +88,11 @@
 
   virtualisation = {
     containers.enable = true;
-    docker.enable = true;
-    docker.enableNvidia = true; #apparently this is depreciated but nothing else works?
-    docker.extraOptions = "--default-runtime=runc";
+    docker = {
+      enable = true;
+      enableNvidia = true;
+      autoPrune.enable = true;
+    };
     oci-containers.backend = "docker";
   };
 
