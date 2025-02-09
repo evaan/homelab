@@ -5,6 +5,7 @@
     ports = [ "9090:9090" ];
     volumes = [
       "prometheus-data:/etc/prometheus"
+      "prometheus-prometheus:/prometheus"
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
