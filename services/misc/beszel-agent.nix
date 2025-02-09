@@ -15,4 +15,6 @@
       PORT = "45876";
     };
   };
+
+  network.firewall.allowedTCPPorts = [ 45876 ];
 }
