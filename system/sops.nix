@@ -18,6 +18,7 @@
       restic-password = {};
       duckdns-env = {};
       cloudflare-env = {};
+      beszel-agent-env = {};
     };
   };
 }

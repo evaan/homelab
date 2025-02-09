@@ -10,6 +10,7 @@
     ./../../services/misc/restic.nix
     ./../../services/games/minecraft.nix
     ./../../services/misc/beszel.nix
+    ./../../services/misc/beszel-agent.nix
   ];
 
   boot.loader = {
