@@ -13,10 +13,4 @@
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
-
-  systemd.services."docker-sonarr" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "always";
-    };
-  };
 }

@@ -15,10 +15,4 @@
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
-
-  systemd.services."docker-prowlarr" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "always";
-    };
-  };
 }

@@ -8,10 +8,4 @@
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
-
-  systemd.services."docker-grafana" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "always";
-    };
-  };
 }

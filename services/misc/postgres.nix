@@ -11,10 +11,4 @@
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
-
-  systemd.services."docker-postgres" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "always";
-    };
-  };
 }

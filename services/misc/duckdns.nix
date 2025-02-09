@@ -15,10 +15,4 @@
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
-
-  systemd.services."docker-duckdns" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "always";
-    };
-  };
 }

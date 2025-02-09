@@ -14,10 +14,4 @@
       "com.centurylinklabs.watchtower.enable" = "false";
     };
   };
-
-  systemd.services."docker-gluetun" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "always";
-    };
-  };
 }

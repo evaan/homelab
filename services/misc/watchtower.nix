@@ -14,10 +14,4 @@
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
-
-    systemd.services."docker-watchtower" = {
-    serviceConfig = {
-      Restart = lib.mkOverride 500 "always";
-    };
-  };
 }
