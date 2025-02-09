@@ -10,7 +10,7 @@
     ./../../services/misc/uptime.nix
     ./../../services/misc/caddy.nix
     ./../../services/misc/tailscale.nix
-    ./../../services/misc/beszel-agent.nix
+    ./../../services/misc/beszel/agent-kephri.nix
   ];
 
   system.stateVersion = "24.11";

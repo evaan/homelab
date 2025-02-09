@@ -9,8 +9,8 @@
     ./../../services/misc/watchtower.nix
     ./../../services/misc/restic.nix
     ./../../services/games/minecraft.nix
-    ./../../services/misc/beszel.nix
-    ./../../services/misc/beszel-agent.nix
+    ./../../services/misc/bezsel/hub.nix
+    ./../../services/misc/beszel/agent-sotetseg.nix
   ];
 
   boot.loader = {
