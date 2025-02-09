@@ -17,6 +17,4 @@
       GPU = "true";
     };
   };
-
-  networking.firewall.allowedTCPPorts = [ 45876 ];
 }
