@@ -9,6 +9,8 @@
     extraGroups = [ "docker" ];
   };
 
+  networking.firewall.allowedTCPPorts = [ 5201 ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
@@ -29,6 +31,7 @@
         speedtest-cli
         iperf3
         dmidecode
+        ethtool
       ];
 
       home.stateVersion = "24.11";
