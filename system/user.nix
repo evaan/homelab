@@ -32,7 +32,6 @@
         iperf3
         dmidecode
         ethtool
-        fast-cli
       ];
 
       home.stateVersion = "24.11";
