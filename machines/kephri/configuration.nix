@@ -3,7 +3,7 @@
     ./../../system/sops.nix
     ./../../system/user.nix
     ./../../services/misc/vaultwarden.nix
-    ./../../services/misc/watchtower.nix
+    # ./../../services/misc/watchtower.nix
     ./../../services/misc/homer.nix
     ./../../services/misc/adguard.nix
     ./../../services/misc/duckdns.nix

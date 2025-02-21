@@ -19,6 +19,7 @@
       duckdns-env = {};
       cloudflare-env = {};
       beszel-agent-env = {};
+      tmodloader-env = {};
     };
   };
 }

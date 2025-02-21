@@ -6,7 +6,7 @@
     ./../../services/media
     ./../../services/misc/postgres.nix
     ./../../services/misc/syncthing.nix
-    ./../../services/misc/watchtower.nix
+    # ./../../services/misc/watchtower.nix
     ./../../services/misc/restic.nix
     ./../../services/games/minecraft.nix
     ./../../services/misc/beszel/hub.nix
