@@ -9,6 +9,7 @@
     # ./../../services/misc/watchtower.nix
     ./../../services/misc/restic.nix
     ./../../services/games/minecraft.nix
+    ./../../services/games/tmodloader.nix
     ./../../services/misc/beszel/hub.nix
     ./../../services/misc/beszel/agent-sotetseg.nix
   ];
