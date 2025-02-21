@@ -1,4 +1,4 @@
-{ lib, ...}: {
+{ config, ...}: {
   virtualisation.oci-containers.containers."tmodloader" = {
     image = "docker.io/jacobsmile/tmodloader1.4:latest";
     autoStart = true;
