@@ -7,7 +7,7 @@
     {
       job_name = "sotetseg";
       static_configs = [{
-        targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" "localhost:9400" "localhost:8084" ];
+        targets = [ "localhost:${toString config.services.prometheus.exporters.node.port}" "localhost:9400" "localhost:8087" ];
       }];
     }
     ];
