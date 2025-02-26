@@ -2,7 +2,7 @@
   virtualisation.oci-containers.containers."cadvisor" = {
     image = "gcr.io/cadvisor/cadvisor:latest";
     autoStart = true;
-    ports = [ "53:53" "53:53/udp" "3000:3000" ];
+    ports = [ "8087:8080" ];
     extraOptions = [
       "--privileged"
       "--device=/dev/kmsg"
