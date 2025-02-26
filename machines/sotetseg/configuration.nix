@@ -12,6 +12,7 @@
     ./../../services/games/tmodloader.nix
     ./../../services/misc/beszel/hub.nix
     ./../../services/misc/beszel/agent-sotetseg.nix
+    ./../../services/misc/monitoring/grafana.nix
     ./../../services/misc/monitoring/prometheus.nix
     ./../../services/misc/monitoring/node-exporter.nix
     ./../../services/misc/monitoring/dcgm-exporter.nix
