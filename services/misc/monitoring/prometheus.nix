@@ -2,7 +2,6 @@
 {
   services.prometheus = {
     enable = true;
-    openFirewall = true;
     globalConfig.scrape_interval = "10s";
     scrapeConfigs = [
     {
@@ -13,4 +12,6 @@
     }
     ];
   };
+
+  allowedTCPPorts = [ 9090 ];
 }
