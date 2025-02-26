@@ -11,6 +11,7 @@
     ./../../services/misc/caddy.nix
     ./../../services/misc/tailscale.nix
     ./../../services/misc/monitoring/node-exporter.nix
+    ./../../services/misc/monitoring/cadvisor.nix
   ];
 
   system.stateVersion = "24.11";

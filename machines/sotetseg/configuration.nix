@@ -16,6 +16,7 @@
     ./../../services/misc/monitoring/prometheus.nix
     ./../../services/misc/monitoring/node-exporter.nix
     ./../../services/misc/monitoring/dcgm-exporter.nix
+    ./../../services/misc/monitoring/cadvisor.nix
   ];
 
   boot.loader = {
