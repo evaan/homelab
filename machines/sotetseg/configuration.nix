@@ -17,6 +17,7 @@
     ./../../services/misc/monitoring/node-exporter.nix
     ./../../services/misc/monitoring/dcgm-exporter.nix
     ./../../services/misc/monitoring/cadvisor.nix
+    ./../../services/misc/monitoring/runescape-exporter.nix
   ];
 
   boot.loader = {
