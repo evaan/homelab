@@ -17,6 +17,12 @@
       }];
     }
     ];
+    {
+      job_name = "runescape";
+      static_configs = [{
+        targets = [ "localhost:8340" "localhost:8341" "localhost:8342" ];
+      }];
+    };
   };
 
   networking.firewall.allowedTCPPorts = [ 9090 ];
