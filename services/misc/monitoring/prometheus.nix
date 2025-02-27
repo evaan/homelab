@@ -22,6 +22,12 @@
           targets = [ "localhost:8340" "localhost:8341" "localhost:8342" ];
         }];
       }
+      {
+        job_name = "hass";
+        static_configs = [{
+          targets = [ "http://192.168.2.5:8123" ];
+        }];
+      }
     ];
   };
 
