@@ -25,7 +25,7 @@
       {
         job_name = "hass";
         static_configs = [{
-          targets = [ "http://192.168.2.5:8123" ];
+          targets = [ "192.168.2.5:8123" ];
         }];
       }
     ];
