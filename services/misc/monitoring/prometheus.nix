@@ -27,6 +27,7 @@
         static_configs = [{
           targets = [ "192.168.2.5:8123" ];
         }];
+        metrics_path = "/api/prometheus";
       }
     ];
   };
