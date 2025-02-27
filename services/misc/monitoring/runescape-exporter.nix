@@ -24,7 +24,7 @@
     ports = [ "8342:8342" ];
     environment = {
       PLAYER_NAME = "good ass job";
-      PORt = "8342";
+      PORT = "8342";
     };
   };
 }
