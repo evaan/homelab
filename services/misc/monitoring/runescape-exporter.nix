@@ -14,7 +14,7 @@
     ports = [ "8341:8341" ];
     environment = {
       PLAYER_NAME = "zoingus";
-      PORT = "8341"
+      PORT = "8341";
     };
   };
 
