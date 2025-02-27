@@ -2,7 +2,7 @@
 {
   services.prometheus = {
     enable = true;
-    globalConfig.scrape_interval = "1m";
+    globalConfig.scrape_interval = "15s";
     scrapeConfigs = [
       {
         job_name = "sotetseg";
