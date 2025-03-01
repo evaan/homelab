@@ -8,6 +8,5 @@
     ./tautulli.nix
     ./lidarr.nix
     ./plex.nix
-    ./flaresolverr.nix
   ];
 }
