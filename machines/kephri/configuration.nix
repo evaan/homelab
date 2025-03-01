@@ -3,15 +3,13 @@
     ./../../system/sops.nix
     ./../../system/user.nix
     ./../../services/misc/vaultwarden.nix
-    # ./../../services/misc/watchtower.nix
     ./../../services/misc/homer.nix
     ./../../services/misc/adguard.nix
     ./../../services/misc/duckdns.nix
     ./../../services/misc/uptime.nix
     ./../../services/misc/caddy.nix
     ./../../services/misc/tailscale.nix
-    ./../../services/misc/monitoring/node-exporter.nix
-    ./../../services/misc/monitoring/cadvisor.nix
+    ./../../services/misc/beszel/agent-kephri.nix
   ];
 
   system.stateVersion = "24.11";

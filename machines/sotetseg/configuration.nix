@@ -6,18 +6,11 @@
     ./../../services/media
     ./../../services/misc/postgres.nix
     ./../../services/misc/syncthing.nix
-    # ./../../services/misc/watchtower.nix
     ./../../services/misc/restic.nix
     ./../../services/games/minecraft.nix
     ./../../services/games/tmodloader.nix
     ./../../services/misc/beszel/hub.nix
     ./../../services/misc/beszel/agent-sotetseg.nix
-    ./../../services/misc/monitoring/grafana.nix
-    ./../../services/misc/monitoring/prometheus.nix
-    ./../../services/misc/monitoring/node-exporter.nix
-    ./../../services/misc/monitoring/dcgm-exporter.nix
-    ./../../services/misc/monitoring/cadvisor.nix
-    # ./../../services/misc/monitoring/runescape-exporter.nix
   ];
 
   boot.loader = {
