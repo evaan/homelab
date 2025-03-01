@@ -139,6 +139,13 @@ in {
         protocols tls1.3
       }
     '';
+    virtualHosts."flaresolverr.home.evaand.ev".extraConfig = ''
+      reverse_proxy http://192.168.2.2:8191
+
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      } 
+    ''
   };
 
 
