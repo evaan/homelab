@@ -32,6 +32,8 @@
         iperf3
         dmidecode
         ethtool
+        go
+        gnumake
       ];
 
       home.stateVersion = "24.11";
