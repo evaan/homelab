@@ -4,8 +4,8 @@
   virtualisation.oci-containers.containers."prowlarr" = {
     image = "docker.io/linuxserver/prowlarr:latest";
     autoStart = true;
-    dependsOn = [ "gluetun" ];
-    extraOptions = [ "--network=container:gluetun" ];
+    # dependsOn = [ "gluetun" ];
+    # extraOptions = [ "--network=container:gluetun" ];
     environment = {
       PUID = "1000";
       PGID = "1000";
