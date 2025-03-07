@@ -7,6 +7,7 @@
     dependsOn = [ "gluetun" ];
     extraOptions = [
       "--network=container:gluetun"
+      "--memory=6g"
     ];
     environment = {
       PUID = "1000";
