@@ -5,7 +5,7 @@
     vrrpInstances = {
       "nfs_failover" = {
         state = "BACKUP";
-        interface = "eth0";
+        interface = "enu1u1u1";
         virtualRouterId = 69;
         priority = 101; 
         virtualIps = [{ addr = "192.168.2.4/24"; }];
