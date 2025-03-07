@@ -8,7 +8,7 @@
         interface = "eth0";
         virtualRouterId = 69;
         priority = 101; 
-        virtualIps = [{ addr = "192.168.2.6/24"; }];
+        virtualIps = [{ addr = "192.168.2.4/24"; }];
         unicastPeers = [ "192.168.2.8" "192.168.2.9" ];
       };
     };
