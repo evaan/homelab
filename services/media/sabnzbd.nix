@@ -1,20 +1,16 @@
 { lib, ...}: {
   imports = [ ../misc/gluetun.nix ];
 
-  virtualisation.oci-containers.containers."qbittorrent" = {
-    image = "docker.io/linuxserver/qbittorrent:latest";
+  virtualisation.oci-containers.containers."sabnzbd" = {
+    image = "docker.io/linuxserver/sabnzbd:latest";
     autoStart = true;
     dependsOn = [ "gluetun" ];
     extraOptions = [
-      "--network=container:gluetun"
       "--memory=4g"
     ];
     environment = {
       PUID = "1000";
       PGID = "1000";
-      WEBUI_PORT = "8081";
-      TORRENTING_PORT = "6881";
-      DOCKER_MODS = "ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest";
     };
     volumes = [
       "qbittorrent-config:/config"
