@@ -6,6 +6,7 @@
     autoStart = true;
     # dependsOn = [ "gluetun" ];
     # extraOptions = [ "--network=container:gluetun" ];
+    ports = [ "9696:9696" ];
     environment = {
       PUID = "1000";
       PGID = "1000";
