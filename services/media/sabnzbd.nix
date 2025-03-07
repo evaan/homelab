@@ -6,7 +6,7 @@
     autoStart = true;
     dependsOn = [ "gluetun" ];
     extraOptions = [
-      "--memory=4g"
+      "--network=container:gluetun"
     ];
     environment = {
       PUID = "1000";
