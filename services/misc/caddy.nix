@@ -35,6 +35,13 @@ in {
       }
     '';
     virtualHosts."qbittorrent.home.evaan.dev".extraConfig = ''
+      reverse_proxy http://192.168.2.2:8081
+
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    '';
+    virtualHosts."sabnzbd.home.evaan.dev".extraConfig = ''
       reverse_proxy http://192.168.2.2:8080
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
