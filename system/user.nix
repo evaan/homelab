@@ -34,6 +34,7 @@
         ethtool
         go
         gnumake
+        ffmpeg
       ];
 
       home.stateVersion = "24.11";
