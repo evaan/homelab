@@ -13,7 +13,7 @@
       PGID = "1000";
     };
     volumes = [
-      "qbittorrent-config:/config"
+      "sabnzbd-config:/config"
       "/mnt/storage:/media"
       "/etc/localtime:/etc/localtime:ro"
     ];
