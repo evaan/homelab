@@ -10,7 +10,7 @@
     ./../../services/games/minecraft.nix
     ./../../services/games/tmodloader.nix
     ./../../services/misc/beszel/hub.nix
-    ./../../services/misc/beszel/agent-sotetseg.nix
+    ./../../services/misc/beszel/agent-nvidia.nix
   ];
 
   boot.loader = {
