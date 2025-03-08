@@ -34,5 +34,15 @@
         sops-nix.nixosModules.sops
       ];
     };
+    nixosConfigurations.branda = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./machines/branda/configuration.nix
+
+        home-manager.nixosModules.home-manager
+        vscode-server.nixosModules.default
+        sops-nix.nixosModules.sops
+      ];
+    };
   };
 }
