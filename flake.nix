@@ -27,7 +27,7 @@
     nixosConfigurations.eldric = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        ./machines/kephri/configuration.nix
+        ./machines/eldric/configuration.nix
 
         home-manager.nixosModules.home-manager
         vscode-server.nixosModules.default

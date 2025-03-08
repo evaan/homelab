@@ -17,7 +17,7 @@ Welcome to my homelab Nix configurations repository! This flake manages two mach
  - **PostgreSQL** - Database used for projects when needed.
  - **Minecraft** - Minecraft server using [nix-minecraft](https://github.com/Infinidoge/nix-minecraft).
 
-## Services Overview (kephri)
+## Services Overview (eldric)
 ### Networking
  - **Caddy** - Reverse proxy with automatic HTTPS for internal services.
  - **Tailscale** - Peer-to-peer VPN, used for allowing local network without a typical VPN.

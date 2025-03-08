@@ -1,11 +1,11 @@
 keys:
   - &verzik age10edchpgax5ckd4nxy6x67laaejww7kjmfmm6x7furhnwpyms8e7slxmg2f
   - &sotetseg age1spnf86q3sxf3pudul6024sratx2h83pmc9q7u609f9jqwntuga0ql0dm8z
-  - &kephri age1cxyjfnvv48j0cs4x7zhga0tuvs3e9py2vqy4s5rzk4e57equ854s0zwvm4
+  - &eldric age1cxyjfnvv48j0cs4x7zhga0tuvs3e9py2vqy4s5rzk4e57equ854s0zwvm4
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
       - age:
         - *verzik
         - *sotetseg
-        - *kephri
+        - *eldric
