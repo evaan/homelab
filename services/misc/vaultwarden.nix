@@ -1,7 +1,7 @@
 { lib, ... }: {
   virtualisation.oci-containers.containers."vaultwarden" = {
     image = "docker.io/vaultwarden/server:latest";
-    autoStart = true;
+    autoStart = false;
     ports = [ "88:80" ];
     volumes = [
       "vaultwarden-data:/data"

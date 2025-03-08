@@ -24,7 +24,7 @@
         sops-nix.nixosModules.sops
       ];
     };
-    nixosConfigurations.kephri = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.eldric = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
         ./machines/kephri/configuration.nix

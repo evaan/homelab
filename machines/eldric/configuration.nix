@@ -14,7 +14,7 @@
   ];
 
   system.stateVersion = "24.11";
-  networking.hostName = "kephri";
+  networking.hostName = "eldric";
 
   time.timeZone = "America/St_Johns";
 
@@ -75,4 +75,6 @@
   };
 
   networking.firewall.trustedInterfaces = [ "docker0" ];
+  
+  services.keepalived.vrrpInstances."titans".priority = 101;
 }
