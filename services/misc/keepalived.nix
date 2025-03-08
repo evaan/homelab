@@ -10,9 +10,9 @@
         virtualIps = [{ addr = "192.168.2.4/24"; }];
         unicastPeers = [ "192.168.2.8" "192.168.2.9" ];
         extraConfig = ''
-          notify_master = "${pkgs.docker}/bin/docker start vaultwarden adguard uptime"
-          notify_backup = "${pkgs.docker}/bin/docker stop vaultwarden adguard uptime"
-          notify_fault = "${pkgs.docker}/bin/docker stop vaultwarden adguard uptime"
+          notify_master = "systemctl start docker-vaultwarden docker-adguard docker-uptime"
+          notify_backup = "systemctl stop docker-vaultwarden docker-adguard docker-uptime"
+          notify_fault = "systemctl stop docker-vaultwarden docker-adguard docker-uptime"
         '';
       };
     };
