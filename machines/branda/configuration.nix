@@ -53,7 +53,7 @@
 
   networking = {
     interfaces.enu1u1u1.ipv4.addresses = [{
-      address = "192.168.2.8";
+      address = "192.168.298";
       prefixLength = 24;
     }];
     defaultGateway = {
@@ -76,5 +76,5 @@
 
   networking.firewall.trustedInterfaces = [ "docker0" ];
 
-  services.keepalived.vrrpInstances."titans".priority = 101;
+  services.keepalived.vrrpInstances."titans".priority = 100;
 }
