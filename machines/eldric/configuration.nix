@@ -78,7 +78,6 @@
 
   services.keepalived.vrrpInstances."titans".priority = 101;
 
-  environment.systemPackages = with pkgs; [
-    glusterfs
-  ];
+  services.glusterfs.enable = true;
+  networking.firewall.allowedTCPPorts = [ 24007 24008 49152 ];
 }
