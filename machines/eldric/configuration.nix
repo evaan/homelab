@@ -77,4 +77,8 @@
   networking.firewall.trustedInterfaces = [ "docker0" ];
 
   services.keepalived.vrrpInstances."titans".priority = 101;
+
+  environment.systemPackages = with pkgs; [
+    glusterfs
+  ];
 }
