@@ -52,7 +52,7 @@
 
   networking = {
     interfaces.enu1u1u1.ipv4.addresses = [{
-      address = "192.168.2.8";
+      address = "192.168.2.4";
       prefixLength = 24;
     }];
     defaultGateway = {
