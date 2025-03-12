@@ -14,7 +14,7 @@
   ];
 
   system.stateVersion = "24.11";
-  networking.hostName = "branda";
+  networking.hostName = "kephri";
 
   time.timeZone = "America/St_Johns";
 
@@ -53,7 +53,7 @@
 
   networking = {
     interfaces.enu1u1u1.ipv4.addresses = [{
-      address = "192.168.2.9";
+      address = "192.168.2.8";
       prefixLength = 24;
     }];
     defaultGateway = {
@@ -75,9 +75,4 @@
   };
 
   networking.firewall.trustedInterfaces = [ "docker0" ];
-
-  services.keepalived.vrrpInstances."titans".priority = 100;
-
-  services.glusterfs.enable = true;
-  networking.firewall.allowedTCPPorts = [ 24007 24008 49152 ];
 }

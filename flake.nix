@@ -24,20 +24,10 @@
         sops-nix.nixosModules.sops
       ];
     };
-    nixosConfigurations.eldric = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.kephri = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        ./machines/eldric/configuration.nix
-
-        home-manager.nixosModules.home-manager
-        vscode-server.nixosModules.default
-        sops-nix.nixosModules.sops
-      ];
-    };
-    nixosConfigurations.branda = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = [
-        ./machines/branda/configuration.nix
+        ./machines/kephri/configuration.nix
 
         home-manager.nixosModules.home-manager
         vscode-server.nixosModules.default
