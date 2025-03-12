@@ -10,7 +10,6 @@
     ./../../services/misc/caddy.nix
     ./../../services/misc/tailscale.nix
     ./../../services/misc/beszel/agent.nix
-    ./../../services/misc/keepalived.nix
   ];
 
   system.stateVersion = "24.11";
