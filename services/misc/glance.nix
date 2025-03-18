@@ -1,10 +1,10 @@
 { lib, ... }: {
-  virtualisation.oci-containers.containers."glance" = {
-    image = "docker.io/glanceapp/glance:latest";
+  virtualisation.oci-containers.containers."homer" = {
+    image = "docker.io/nginx:alpine";
     autoStart = true;
-    ports = [ "84:8080" ];
+    ports = [ "84:80" ];
     volumes = [
-      "glance-config:/app/config"
+      "homer-html:/usr/share/nginx/html"
       "/etc/localtime:/etc/localtime:ro"
     ];
   };
