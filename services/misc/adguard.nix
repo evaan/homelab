@@ -1,7 +1,7 @@
 { lib, ... }: {
   virtualisation.oci-containers.containers."adguard" = {
     image = "docker.io/adguard/adguardhome:latest";
-    autoStart = false;
+    autoStart = true;
     ports = [ "53:53" "53:53/udp" "3000:3000" ];
     volumes = [
       "adguard-conf:/opt/adguardhome/conf"
