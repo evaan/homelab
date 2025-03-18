@@ -6,7 +6,6 @@
     ./../../services/misc/homer.nix
     ./../../services/misc/adguard.nix
     ./../../services/misc/duckdns.nix
-    ./../../services/misc/uptime.nix
     ./../../services/misc/caddy.nix
     ./../../services/misc/tailscale.nix
     ./../../services/misc/beszel/agent.nix

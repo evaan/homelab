@@ -84,7 +84,7 @@ in {
       }
     '';
     virtualHosts."uptime.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.4:3001
+      redir https://uptime.evaan.dev permanent
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
