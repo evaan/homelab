@@ -7,7 +7,7 @@ in {
   services.caddy = {
     enable = true;
     virtualHosts."home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.8:84
+      reverse_proxy http://192.168.2.4:84
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
@@ -84,7 +84,7 @@ in {
       }
     '';
     virtualHosts."uptime.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.8:3001
+      reverse_proxy http://192.168.2.4:3001
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
@@ -98,7 +98,7 @@ in {
       }
     '';
     virtualHosts."adguard.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.8:3000
+      reverse_proxy http://192.168.2.4:3000
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
@@ -112,7 +112,7 @@ in {
       }
     '';
     virtualHosts."vaultwarden.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.2.8:88
+      reverse_proxy http://192.168.2.4:88
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3
