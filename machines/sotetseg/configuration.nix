@@ -49,14 +49,11 @@
 
   networking = {
     interfaces.enp4s0.ipv4.addresses = [{
-      address = "192.168.2.2";
-      prefixLength = 24;
-    } {
       address = "192.168.7.2";
       prefixLength = 24;
     }];
     defaultGateway = {
-      address = "192.168.2.1";
+      address = "192.168.7.1";
       interface = "enp4s0";
     };
     nameservers = [ "8.8.8.8" "8.8.4.4" ];
