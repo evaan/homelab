@@ -51,6 +51,9 @@
     interfaces.enp4s0.ipv4.addresses = [{
       address = "192.168.2.2";
       prefixLength = 24;
+    }, {
+      address = "192.168.7.2";
+      prefixLength = 24;
     }];
     defaultGateway = {
       address = "192.168.2.1";
@@ -63,7 +66,7 @@
   programs.zsh.enable = true;
 
   fileSystems."/mnt/storage" = {
-    device = "192.168.2.3:/mnt/arceuus/Data";
+    device = "192.168.7.3:/mnt/arceuus/Data";
     fsType = "nfs";
     options = [
       "nfsvers=3" "rw" "sync" 
