@@ -7,7 +7,7 @@ in {
   services.caddy = {
     enable = true;
     virtualHosts."home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.7.4:84
+      reverse_proxy http://192.168.7.4:5005
 
       tls ${certloc}/cert.pem ${certloc}/key.pem {
         protocols tls1.3

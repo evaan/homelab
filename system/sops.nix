@@ -20,6 +20,7 @@
       cloudflare-env = {};
       beszel-agent-env = {};
       tmodloader-env = {};
+      flame-env = {};
     };
   };
 }

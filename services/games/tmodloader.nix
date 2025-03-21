@@ -1,7 +1,7 @@
 { config, ...}: {
   virtualisation.oci-containers.containers."tmodloader" = {
     image = "docker.io/jacobsmile/tmodloader1.4:latest";
-    autoStart = true;
+    autoStart = false;
     ports = [ "7777:7777" ];
     extraOptions = [
       "--memory=4g"
