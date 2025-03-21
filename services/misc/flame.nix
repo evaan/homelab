@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   virtualisation.oci-containers.containers."flame" = {
     image = "docker.io/pawelmalak/flame:multiarch";
     autoStart = true;
