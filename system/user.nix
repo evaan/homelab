@@ -35,6 +35,8 @@
         go
         gnumake
         ffmpeg
+        cargo
+        rustc
       ];
 
       home.stateVersion = "24.11";
