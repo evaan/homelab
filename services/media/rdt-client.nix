@@ -5,7 +5,7 @@
     dependsOn = [ "gluetun" ];
     extraOptions = [
       "--network=container:gluetun"
-      "--memory=2g"
+      "--memory=4g"
     ];
     volumes = [
       "rdtclient_data:/data/db"
