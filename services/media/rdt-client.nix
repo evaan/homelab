@@ -7,7 +7,7 @@
     ];
     volumes = [
       "rdtclient_data:/data/db"
-      "rdtclient_downloads:/data/downloads"
+      "rdtclient_downloads:/mnt/storage/RD Downloads"
     ];
     environment = {
       PUID = "1000";
