@@ -8,8 +8,6 @@
     ];
     extraOptions = [
       "--gpus=all"
-      "--log-opt=max-size=10m"
-      "--log-opt=max-file=5"
       "--memory=8g"
     ];
     volumes = [
