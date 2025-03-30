@@ -146,6 +146,13 @@ in {
         protocols tls1.3
       }
     '';
+    virtualHosts."rdtclient.home.evaan.dev".extraConfig = ''
+      reverse_proxy http://192.168.7.2:6500
+
+      tls ${certloc}/cert.pem ${certloc}/key.pem {
+        protocols tls1.3
+      }
+    '';
   };
 
 
