@@ -17,7 +17,7 @@
       "tdarr_config:/app/configs"
       "tdarr_logs:/app/logs"
       "tdarr_temp:/temp"
-      "/media:/media"
+      "/mnt/storage:/media"
       "/etc/localtime:/etc/localtime:ro"
     ];
     environment = {
