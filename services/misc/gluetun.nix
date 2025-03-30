@@ -2,7 +2,7 @@
   virtualisation.oci-containers.containers."gluetun" = {
     image = "docker.io/qmcgaw/gluetun:latest";
     autoStart = true;
-    ports = [ "8080:8080" "8081:8081" "6880:6880" ];
+    ports = [ "8080:8080" "8081:8081" "6800:6800" ];
     extraOptions = [ "--cap-add=NET_ADMIN" "--device=/dev/net/tun:/dev/net/tun" ];
     environmentFiles = [
       config.sops.secrets.gluetun-env.path
