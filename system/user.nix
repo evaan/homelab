@@ -32,11 +32,10 @@
         iperf3
         dmidecode
         ethtool
-        go
         gnumake
         ffmpeg
-        cargo
-        rustc
+        unrar
+        rsync
       ];
 
       home.stateVersion = "24.11";

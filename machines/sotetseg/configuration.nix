@@ -66,10 +66,11 @@
     device = "192.168.7.3:/mnt/arceuus/Data";
     fsType = "nfs";
     options = [
-      "nfsvers=3" "rw" "sync" 
-      "rsize=8192" "wsize=8192" 
+      "nfsvers=3" "rw" "async" 
+      "rsize=65536" "wsize=65536"
       "nofail" "x-systemd.automount" 
       "x-systemd.device-timeout=10"
+      "noatime"
     ];
   };
 
