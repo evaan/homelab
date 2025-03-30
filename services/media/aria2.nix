@@ -1,14 +1,15 @@
 { lib, config, ... }: {
-  virtualisation.oci-containers.containers."rdtclient" = {
-    image = "docker.io/rogerfar/rdtclient:latest";
+  virtualisation.oci-containers.containers."aria2" = {
+    image = "docker.io/p3terx/aria2-pro:latest";
     autoStart = true;
-    ports = [ "6500:6500" ];
+    dependsOn = [ "gluetun" ];
     extraOptions = [
+      "--network=container:gluetun"
       "--memory=4g"
     ];
     volumes = [
-      "rdtclient_data:/data/db"
       "/mnt/storage:/media"
+      "aria2_config:/config"
     ];
     environment = {
       PUID = "1000";

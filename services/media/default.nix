@@ -10,5 +10,6 @@
     ./lidarr.nix
     ./plex.nix
     ./rdt-client.nix
+    ./aria2.nix
   ];
 }
