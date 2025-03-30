@@ -8,7 +8,7 @@
       "--memory=4g"
     ];
     volumes = [
-      "/mnt/storage:/media"
+      "/mnt/storage/aria2:/downloads"
       "aria2_config:/config"
     ];
     environment = {
