@@ -2,9 +2,8 @@
   virtualisation.oci-containers.containers."rdtclient" = {
     image = "docker.io/rogerfar/rdtclient:latest";
     autoStart = true;
-    dependsOn = [ "gluetun" ];
+    ports = [ "6500:6500" ]; 
     extraOptions = [
-      "--network=container:gluetun"
       "--memory=4g"
     ];
     volumes = [
