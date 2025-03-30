@@ -12,7 +12,7 @@
     environment = {
       PUID = "1000";
       PGID = "1000";
-      TZ = "Europe/London";
+      TZ = "America/St_Johns";
     };
   };
 }
