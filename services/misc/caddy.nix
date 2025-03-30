@@ -146,13 +146,6 @@ in {
         protocols tls1.3
       }
     '';
-    virtualHosts."tdarr.home.evaan.dev".extraConfig = ''
-      reverse_proxy http://192.168.7.2:8265
-
-      tls ${certloc}/cert.pem ${certloc}/key.pem {
-        protocols tls1.3
-      }
-    '';
   };
 
 

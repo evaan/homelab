@@ -9,6 +9,5 @@
     ./tautulli.nix
     ./lidarr.nix
     ./plex.nix
-    ./tdarr.nix
   ];
 }
