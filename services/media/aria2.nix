@@ -8,6 +8,7 @@
     environment = {
       PUID = "1000";
       PGID = "0";
+      ARIA2_FILE_ALLOCATION = "none";
     };
     volumes = [
       "aria2_config:/config"
