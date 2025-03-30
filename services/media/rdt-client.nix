@@ -16,4 +16,6 @@
       TZ = "America/St_Johns";
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ 6500 ];
 }
