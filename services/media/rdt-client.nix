@@ -2,8 +2,8 @@
   virtualisation.oci-containers.containers."rdtclient" = {
     image = "docker.io/rogerfar/rdtclient:latest";
     autoStart = true;
-    ports = [ "6500:6500" ]; 
     extraOptions = [
+      "--network=host"
       "--memory=4g"
     ];
     volumes = [
