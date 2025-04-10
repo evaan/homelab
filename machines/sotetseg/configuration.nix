@@ -5,6 +5,7 @@
     ./../../system/user.nix
     ./../../services/media
     ./../../services/misc/postgres.nix
+    ./../../services/misc/redis.nix
     ./../../services/misc/syncthing.nix
     ./../../services/misc/restic.nix
     ./../../services/games/minecraft.nix
