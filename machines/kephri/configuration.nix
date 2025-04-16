@@ -9,6 +9,7 @@
     ./../../services/misc/caddy.nix
     ./../../services/misc/tailscale.nix
     ./../../services/misc/beszel/agent.nix
+    ./../../services/misc/watchtower.nix
   ];
 
   system.stateVersion = "24.11";
