@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ config, ... }: {
   virtualisation.oci-containers.containers."gluetun" = {
     image = "docker.io/qmcgaw/gluetun:latest";
     autoStart = true;

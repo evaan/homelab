@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, ... }: {
   virtualisation.oci-containers.containers."duckdns" = {
     image = "docker.io/linuxserver/duckdns:latest";
     autoStart = true;

@@ -12,7 +12,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs = { self, nixpkgs, home-manager, vscode-server, sops-nix, nix-minecraft, ... }@inputs: rec {
+  outputs = { nixpkgs, home-manager, vscode-server, sops-nix, ... }@inputs: rec {
     nixosConfigurations.sotetseg = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       system = "x86_64-linux";

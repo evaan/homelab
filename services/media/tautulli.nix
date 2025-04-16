@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."tautulli" = {
     image = "docker.io/linuxserver/tautulli:latest";
     autoStart = true;

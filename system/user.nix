@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ pkgs, ... }: {
   users.users.evan = {
     isNormalUser = true;
     home = "/home/evan";

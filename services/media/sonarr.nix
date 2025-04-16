@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."sonarr" = {
     image = "docker.io/linuxserver/sonarr:latest";
     autoStart = true;

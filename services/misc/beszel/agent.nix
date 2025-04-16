@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ config, ... }: {
   virtualisation.oci-containers.containers."beszel-agent" = {
     image = "docker.io/henrygd/beszel-agent:latest";
     extraOptions = [

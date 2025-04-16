@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."syncthing" = {
     image = "docker.io/linuxserver/syncthing:latest";
     autoStart = true;

@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."rdtclient" = {
     image = "docker.io/rogerfar/rdtclient:latest";
     autoStart = true;

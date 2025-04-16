@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."vaultwarden" = {
     image = "docker.io/vaultwarden/server:latest";
     autoStart = true;

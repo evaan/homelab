@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ config, ... }: {
   virtualisation.oci-containers.containers."postgres" = {
     image = "docker.io/postgres:alpine";
     autoStart = true;

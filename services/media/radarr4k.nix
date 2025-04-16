@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."radarr4k" = {
     image = "docker.io/linuxserver/radarr:latest";
     autoStart = true;
