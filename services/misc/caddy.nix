@@ -1,9 +1,10 @@
-{ config, ... }: 
+{ config, ... }:
 let
   certloc = "/var/lib/acme/home.evaan.dev";
-in {
+in
+{
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  
+
   services.caddy = {
     enable = true;
     virtualHosts."home.evaan.dev".extraConfig = ''

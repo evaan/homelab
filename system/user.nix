@@ -2,7 +2,7 @@
   users.users.evan = {
     isNormalUser = true;
     home = "/home/evan";
-    shell = pkgs.zsh; 
+    shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPLdFa8eo+/mlCGxDx5X5Mc6SneH9FNEYbB5GY+lExOa"
     ];
@@ -14,7 +14,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
-    
+
     users.evan = {
       home.packages = with pkgs; [
         neofetch

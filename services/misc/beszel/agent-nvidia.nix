@@ -5,7 +5,7 @@
       "--network=host"
       "--device=nvidia.com/gpu=all"
     ];
-    autoStart = true; 
+    autoStart = true;
     environmentFiles = [
       config.sops.secrets.beszel-agent-env.path
     ];

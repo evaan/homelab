@@ -68,15 +68,19 @@
     device = "192.168.7.3:/mnt/arceuus/Data";
     fsType = "nfs";
     options = [
-      "nfsvers=3" "rw" "async" 
-      "rsize=65536" "wsize=65536"
-      "nofail" "x-systemd.automount" 
+      "nfsvers=3"
+      "rw"
+      "async"
+      "rsize=65536"
+      "wsize=65536"
+      "nofail"
+      "x-systemd.automount"
       "x-systemd.device-timeout=10"
       "noatime"
     ];
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;

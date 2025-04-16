@@ -6,7 +6,7 @@
   services.minecraft-servers = {
     enable = true;
     eula = true;
-    
+
     servers = {
       paper = {
         enable = true;

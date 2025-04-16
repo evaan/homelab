@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."adguard" = {
     image = "docker.io/adguard/adguardhome:latest";
     autoStart = true;

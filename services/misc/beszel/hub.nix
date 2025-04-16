@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."beszel" = {
     image = "docker.io/henrygd/beszel:latest";
     autoStart = true;

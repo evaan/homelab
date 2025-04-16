@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ ... }: {
   virtualisation.oci-containers.containers."homer" = {
     image = "docker.io/nginx:alpine";
     autoStart = true;

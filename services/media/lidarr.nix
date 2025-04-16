@@ -1,4 +1,4 @@
-{ lib, ...}:  {
+{ lib, ... }: {
   virtualisation.oci-containers.containers."lidarr" = {
     image = "docker.io/linuxserver/lidarr:latest";
     autoStart = true;

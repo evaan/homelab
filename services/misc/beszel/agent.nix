@@ -4,7 +4,7 @@
     extraOptions = [
       "--network=host"
     ];
-    autoStart = true; 
+    autoStart = true;
     environmentFiles = [
       config.sops.secrets.beszel-agent-env.path
     ];

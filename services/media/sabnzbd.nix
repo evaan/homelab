@@ -1,4 +1,4 @@
-{ lib, ...}: {
+{ lib, ... }: {
   imports = [ ../misc/gluetun.nix ];
 
   virtualisation.oci-containers.containers."sabnzbd" = {

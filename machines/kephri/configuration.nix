@@ -21,9 +21,9 @@
 
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
-  boot.consoleLogLevel = 4; 
+  boot.consoleLogLevel = 4;
 
-  fileSystems."/" = { 
+  fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
     fsType = "ext4";
     options = [ "noatime" ];
