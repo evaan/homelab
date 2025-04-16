@@ -6,7 +6,7 @@
       config.sops.secrets.watchtower-env.path
     ];
     environment = {
-      "WATCHTOWER_RUN_ONCE" = "true";
+      "WATCHTOWER_SCHEDULE" = "30 4 * * 1";
     };
     volumes = [
       "/var/run/docker.sock:/var/run/docker.sock"
