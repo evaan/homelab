@@ -12,6 +12,7 @@
     ./../../services/games/tmodloader.nix
     ./../../services/misc/beszel/hub.nix
     ./../../services/misc/beszel/agent-nvidia.nix
+    ./../../services/misc/watchtower.nix
   ];
 
   boot.loader = {
