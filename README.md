@@ -106,20 +106,32 @@ are reused by the NixOS-managed container.
 
 ## Caddy
 
-Caddy serves <https://vaultwarden.home.evaan.dev> and proxies to
-`127.0.0.1:8000`. Only clients in `192.168.7.0/24`, Tailscale's IPv4 range
+Caddy serves these HTTPS hostnames:
+
+| Hostname | Destination |
+| --- | --- |
+| `vaultwarden.home.evaan.dev` | Reverse proxy to `127.0.0.1:8000` |
+| `truenas.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:80` |
+| `pikvm.home.evaan.dev` | Reverse proxy to `http://192.168.7.7:80` |
+| `router.home.evaan.dev` | Permanent HTTP 301 redirect to `http://192.168.7.1:80`, preserving the path and query |
+
+Only clients in `192.168.7.0/24`, Tailscale's IPv4 range
 `100.64.0.0/10`, Tailscale's IPv6 range `fd7a:115c:a1e0::/48`, and loopback
 are allowed; other source addresses receive HTTP 403. This uses the actual
-connection's source address, not forwarded headers. These rules apply to this
-Vaultwarden virtual host, not automatically to future Caddy sites.
+connection's source address, not forwarded headers. The shared rules apply to
+all hostnames in the Caddy module's `sites` attribute set.
+
+The TrueNAS and PiKVM upstream connections use unencrypted HTTP on the LAN.
+After the router redirect, the browser connects directly to the router over
+HTTP; it must be able to reach `192.168.7.1` itself.
 
 Tailscale is not enabled yet. Once installed, use its ACLs/grants to control
 which tailnet devices can connect. The Caddy rule is an IP allowlist, not a
 Tailscale identity check; the IPv4 range is shared CGNAT space. Remote clients
-also need DNS resolving this hostname to the server's Tailscale IP, or a subnet
+also need DNS resolving these hostnames to the server's Tailscale IP, or a subnet
 route to its LAN IP.
 
-NixOS ACME obtains and renews a Let's Encrypt certificate using Cloudflare
+NixOS ACME obtains and renews a Let's Encrypt certificate for each hostname using Cloudflare
 DNS-01, then reloads Caddy. No custom Caddy plugin is needed. The `evaan.dev`
 zone must be managed by Cloudflare. Create an API token with **Zone / DNS /
 Edit** and **Zone / Zone / Read**, scoped only to `evaan.dev`; do not use a
@@ -146,14 +158,14 @@ Only the filename is in Nix; the token stays outside Git and the Nix store.
 The file is required for certificate issuance and renewals, so keep it in place.
 The ACME service reads it through systemd; Caddy does not need access to the token.
 
-Configure your LAN DNS to resolve `vaultwarden.home.evaan.dev` to `192.168.7.2`
-(or add a client hosts-file entry). Cloudflare validation creates temporary TXT
+Configure your LAN DNS to resolve all four hostnames to `192.168.7.2`
+(or add client hosts-file entries). Cloudflare validation creates temporary TXT
 records; it does not configure this LAN DNS record for you. No public A record,
 Cloudflare proxy, or router port forwarding is required.
 
 Track the new module with `git add services/caddy`, then run `just sotetseg`.
 The host firewall opens TCP 80/443 and UDP 443 for Caddy. HTTP redirects to HTTPS;
-the Vaultwarden proxy itself enforces the LAN/Tailscale restriction.
+each site's proxy or redirect enforces the LAN/Tailscale restriction.
 
 ```sh
 sudo systemctl status caddy
