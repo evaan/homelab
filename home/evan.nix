@@ -31,6 +31,14 @@
 
   programs.home-manager.enable = true;
 
+  programs.dircolors = {
+    enable = true;
+    settings = {
+      OTHER_WRITABLE = "01;36";
+      STICKY_OTHER_WRITABLE = "01;36";
+    };
+  };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
