@@ -42,26 +42,22 @@
       "packages"
       "shell"
       "display"
-      "de"
-      "wm"
-      "wmtheme"
-      "theme"
-      "icons"
-      "font"
-      "cursor"
       "cpu"
       "gpu"
       "memory"
       "swap"
-      "disk"
+      {
+        type = "disk";
+        format = "{size-used} / {size-total} ({size-percentage})";
+      }
       {
         type = "disk";
         folders = "/mnt/arceuus/Movies";
+        hideFS = "autofs";
         key = "Disk (arceuus)";
+        format = "{size-used} / {size-total} ({size-percentage})";
       }
       "localip"
-      "battery"
-      "poweradapter"
       "break"
       "colors"
     ];
