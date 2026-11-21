@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/containers.nix
+    ../../services/caddy
     ../../services/plex
     ../../services/vaultwarden
     ../../services/vigil

@@ -5,6 +5,7 @@
     image = "vaultwarden/server:latest";
     labels."dev.vigil.enable" = "true";
     environment = {
+      DOMAIN = "https://vaultwarden.home.evaan.dev";
       TZ = "America/St_Johns";
     };
     volumes = [
