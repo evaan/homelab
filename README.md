@@ -89,11 +89,14 @@ Docker creates the named volumes `plex-config` at `/config` and
 In Plex's transcoder settings, set the temporary directory to `/transcode`.
 
 The Arceuus NFS mounts are available read-only inside Plex at `/tv`, `/movies`,
-and `/4kmovies`. GPU passthrough is not yet configured for this container.
+and `/4kmovies`. NVIDIA GPUs are passed through using the host's Container
+Toolkit CDI integration. Enable hardware acceleration in Plex's transcoder
+settings with Plex Pass.
 
 ```sh
 sudo systemctl status docker-plex
 sudo docker logs -f plex
+sudo docker exec plex nvidia-smi
 ```
 
 If the previous Compose deployment is already running, stop it with

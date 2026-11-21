@@ -18,6 +18,7 @@
       TZ = "America/St_Johns";
       VERSION = "docker";
     };
+    devices = [ "nvidia.com/gpu=all" ];
     volumes = [
       "plex-config:/config"
       "plex-transcode:/transcode"
