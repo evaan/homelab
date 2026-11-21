@@ -17,6 +17,7 @@
       PGID = "1000";
       TZ = "America/St_Johns";
       VERSION = "docker";
+      LD_LIBRARY_PATH = "/usr/local/nvidia/lib:/usr/local/nvidia/lib64";
     };
     devices = [ "nvidia.com/gpu=all" ];
     volumes = [
