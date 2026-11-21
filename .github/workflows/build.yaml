@@ -1,0 +1,43 @@
+name: Build sotetseg
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Require pinned dependencies
+        run: |
+          if [ ! -f flake.lock ]; then
+            echo "::error::Generate and commit flake.lock using 'nix flake lock' before running CI."
+            exit 1
+          fi
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v32.0.0
+        with:
+          github_access_token: ${{ github.token }}
+
+      - name: Build sotetseg
+        run: >-
+          nix build
+          --no-link
+          --no-update-lock-file
+          --print-build-logs
+          .#nixosConfigurations.sotetseg.config.system.build.toplevel
