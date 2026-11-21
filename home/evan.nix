@@ -9,7 +9,6 @@
     packages = with pkgs; [
       curl
       dnsutils
-      fastfetch
       fd
       git
       htop
@@ -30,6 +29,43 @@
   };
 
   programs.home-manager.enable = true;
+
+  programs.fastfetch = {
+    enable = true;
+    settings.modules = [
+      "title"
+      "separator"
+      "os"
+      "host"
+      "kernel"
+      "uptime"
+      "packages"
+      "shell"
+      "display"
+      "de"
+      "wm"
+      "wmtheme"
+      "theme"
+      "icons"
+      "font"
+      "cursor"
+      "cpu"
+      "gpu"
+      "memory"
+      "swap"
+      "disk"
+      {
+        type = "disk";
+        folders = "/mnt/arceuus/Movies";
+        key = "Disk (arceuus)";
+      }
+      "localip"
+      "battery"
+      "poweradapter"
+      "break"
+      "colors"
+    ];
+  };
 
   programs.dircolors = {
     enable = true;
