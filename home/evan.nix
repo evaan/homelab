@@ -5,6 +5,7 @@
     username = "evan";
     homeDirectory = "/home/evan";
     stateVersion = "26.05";
+    file.".hushlogin".text = "";
     packages = with pkgs; [
       curl
       dnsutils
