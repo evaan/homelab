@@ -23,6 +23,7 @@ let
     "www.memorialmedtech.ca" = "reverse_proxy http://127.0.0.1:8281";
     "app.memorialmedtech.ca" = "reverse_proxy http://127.0.0.1:8281";
     "demo.memorialmedtech.ca" = "reverse_proxy http://127.0.0.1:8281";
+    "inventory.evaan.dev" = "reverse_proxy http://127.0.0.1:8381";
   };
 
   privateNetworks = [
