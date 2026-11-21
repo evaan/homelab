@@ -16,9 +16,9 @@ let
   };
 
   publicSites = {
-    "claretformun.com" = "reverse_proxy http://127.0.0.1:8081";
-    "www.claretformun.com" = "reverse_proxy http://127.0.0.1:8081";
-    "api.claretformun.com" = "reverse_proxy http://127.0.0.1:8081";
+    "claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
+    "www.claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
+    "api.claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
   };
 
   privateNetworks = [

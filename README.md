@@ -189,7 +189,7 @@ Do not bypass certificate warnings.
 ### Public Claret sites
 
 `claretformun.com`, `www.claretformun.com`, and `api.claretformun.com` all proxy to
-`http://127.0.0.1:8081`, where the independently managed Compose project's
+`http://127.0.0.1:8181`, where the independently managed Compose project's
 Traefik routes by the original hostname. These three HTTPS sites only accept
 connections from Cloudflare's published IPv4 proxy ranges; all other
 source addresses receive HTTP 403, including direct LAN and Tailscale requests.
@@ -204,7 +204,7 @@ aligned with <https://www.cloudflare.com/ips-v4>. Keep the origin DNS records
 IPv4-only; Cloudflare can still serve IPv6 clients at its edge.
 
 Configure the Compose project to publish only Traefik's HTTP entrypoint at
-`127.0.0.1:8081:80`. Both routers must use the `web` entrypoint without their
+`127.0.0.1:8181:80`. Both routers must use the `web` entrypoint without their
 `tls=true` labels, since Caddy terminates HTTPS. The `server` container needs
 no published port. Use the modern Traefik load-balancer port labels for nginx
 (`80`) and the API (`8080`). No Compose file is managed by this flake.
@@ -214,7 +214,7 @@ and create proxied `www` and `api` CNAMEs pointing to `claretformun.com`. Set SS
 encryption mode to **Full (strict)**. Forward WAN TCP 443 to
 `192.168.7.2:443`; port 80 is optional for HTTP-to-HTTPS redirects, and DNS-01
 certificate validation does not need either inbound port. Do not forward
-8081 or the API's container port.
+8181 or the API's container port.
 
 ## Cloudflare DDNS
 
