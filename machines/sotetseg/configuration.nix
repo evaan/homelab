@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/auto-upgrade.nix
     ../../modules/containers.nix
     ../../services/caddy
     ../../services/cloudflare-ddns
