@@ -6,6 +6,13 @@ let
     "truenas.home.evaan.dev" = "reverse_proxy http://192.168.7.3:80";
     "pikvm.home.evaan.dev" = "reverse_proxy http://192.168.7.7:80";
     "router.home.evaan.dev" = "redir http://192.168.7.1:80{uri} permanent";
+    "prowlarr.home.evaan.dev" = "reverse_proxy http://192.168.7.3:9696";
+    "radarr.home.evaan.dev" = "reverse_proxy http://192.168.7.3:7878";
+    "radarr4k.home.evaan.dev" = "reverse_proxy http://192.168.7.3:7879";
+    "rdtclient.home.evaan.dev" = "reverse_proxy http://192.168.7.3:30249";
+    "sabnzbd.home.evaan.dev" = "reverse_proxy http://192.168.7.3:30055";
+    "sonarr.home.evaan.dev" = "reverse_proxy http://192.168.7.3:8989";
+    "syncthing.home.evaan.dev" = "reverse_proxy http://192.168.7.3:20910";
   };
 in
 {

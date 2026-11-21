@@ -114,6 +114,13 @@ Caddy serves these HTTPS hostnames:
 | `truenas.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:80` |
 | `pikvm.home.evaan.dev` | Reverse proxy to `http://192.168.7.7:80` |
 | `router.home.evaan.dev` | Permanent HTTP 301 redirect to `http://192.168.7.1:80`, preserving the path and query |
+| `prowlarr.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:9696` |
+| `radarr.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:7878` |
+| `radarr4k.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:7879` |
+| `rdtclient.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:30249` |
+| `sabnzbd.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:30055` |
+| `sonarr.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:8989` |
+| `syncthing.home.evaan.dev` | Reverse proxy to `http://192.168.7.3:20910` |
 
 Only clients in `192.168.7.0/24`, Tailscale's IPv4 range
 `100.64.0.0/10`, Tailscale's IPv6 range `fd7a:115c:a1e0::/48`, and loopback
@@ -121,7 +128,7 @@ are allowed; other source addresses receive HTTP 403. This uses the actual
 connection's source address, not forwarded headers. The shared rules apply to
 all hostnames in the Caddy module's `sites` attribute set.
 
-The TrueNAS and PiKVM upstream connections use unencrypted HTTP on the LAN.
+All remote upstream connections use unencrypted HTTP on the LAN.
 After the router redirect, the browser connects directly to the router over
 HTTP; it must be able to reach `192.168.7.1` itself.
 
@@ -158,7 +165,7 @@ Only the filename is in Nix; the token stays outside Git and the Nix store.
 The file is required for certificate issuance and renewals, so keep it in place.
 The ACME service reads it through systemd; Caddy does not need access to the token.
 
-Configure your LAN DNS to resolve all four hostnames to `192.168.7.2`
+Configure your LAN DNS to resolve all listed hostnames to `192.168.7.2`
 (or add client hosts-file entries). Cloudflare validation creates temporary TXT
 records; it does not configure this LAN DNS record for you. No public A record,
 Cloudflare proxy, or router port forwarding is required.
