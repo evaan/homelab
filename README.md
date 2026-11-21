@@ -107,7 +107,7 @@ are reused by the NixOS-managed container.
 
 ## Caddy
 
-Caddy serves these HTTPS hostnames:
+Caddy serves these private HTTPS hostnames:
 
 | Hostname | Destination |
 | --- | --- |
@@ -127,7 +127,7 @@ Only clients in `192.168.7.0/24`, Tailscale's IPv4 range
 `100.64.0.0/10`, Tailscale's IPv6 range `fd7a:115c:a1e0::/48`, and loopback
 are allowed; other source addresses receive HTTP 403. This uses the actual
 connection's source address, not forwarded headers. The shared rules apply to
-all hostnames in the Caddy module's `sites` attribute set.
+all hostnames in the Caddy module's `privateSites` attribute set.
 
 All remote upstream connections use unencrypted HTTP on the LAN.
 After the router redirect, the browser connects directly to the router over
@@ -139,11 +139,12 @@ Tailscale identity check; the IPv4 range is shared CGNAT space. Remote clients
 also need DNS resolving these hostnames to the server's Tailscale IP, or a subnet
 route to its LAN IP.
 
-NixOS ACME obtains and renews a Let's Encrypt certificate for each hostname using Cloudflare
-DNS-01, then reloads Caddy. No custom Caddy plugin is needed. The `evaan.dev`
-zone must be managed by Cloudflare. Create an API token with **Zone / DNS /
-Edit** and **Zone / Zone / Read**, scoped only to `evaan.dev`; do not use a
-global API key.
+NixOS ACME obtains and renews a Let's Encrypt certificate for each hostname using
+Cloudflare DNS-01, then reloads Caddy. No custom Caddy plugin is needed. The
+`evaan.dev` and `claretformun.com` zones must be managed by Cloudflare. Create an
+API token with **Zone / DNS / Edit** and **Zone / Zone / Read**, scoped only to
+these two zones; do not use a global API key. If the existing token only covers
+`evaan.dev`, expand its zone scope before rebuilding.
 
 Before rebuilding, create the secret file directly on **sotetseg**, never in
 this repository:
@@ -166,14 +167,14 @@ Only the filename is in Nix; the token stays outside Git and the Nix store.
 The file is required for certificate issuance and renewals, so keep it in place.
 The ACME service reads it through systemd; Caddy does not need access to the token.
 
-Configure your LAN DNS to resolve all listed hostnames to `192.168.7.2`
+Configure your LAN DNS to resolve the private hostnames to `192.168.7.2`
 (or add client hosts-file entries). Cloudflare validation creates temporary TXT
 records; it does not configure this LAN DNS record for you. No public A record,
 Cloudflare proxy, or router port forwarding is required.
 
 Track the new module with `git add services/caddy`, then run `just sotetseg`.
 The host firewall opens TCP 80/443 and UDP 443 for Caddy. HTTP redirects to HTTPS;
-each site's proxy or redirect enforces the LAN/Tailscale restriction.
+each private site's proxy or redirect enforces the LAN/Tailscale restriction.
 
 ```sh
 sudo systemctl status caddy
@@ -185,10 +186,40 @@ Fix the token/DNS issue and retry
 `sudo systemctl restart acme-order-renew-vaultwarden.home.evaan.dev`.
 Do not bypass certificate warnings.
 
+### Public Claret sites
+
+`claretformun.com`, `www.claretformun.com`, and `api.claretformun.com` all proxy to
+`http://127.0.0.1:8081`, where the independently managed Compose project's
+Traefik routes by the original hostname. These three HTTPS sites only accept
+connections from Cloudflare's published IPv4 proxy ranges; all other
+source addresses receive HTTP 403, including direct LAN and Tailscale requests.
+Private home sites retain their separate LAN/Tailscale allowlist.
+
+The source check uses the connection's actual `remote_ip`, not a spoofable
+forwarded header. It is a per-site application rule, not a firewall restriction:
+TLS handshakes and automatic HTTP-to-HTTPS redirects can still be reached
+directly. IP allowlisting identifies Cloudflare's network, not your individual
+Cloudflare account. The ranges are stored in `cloudflareNetworks`; keep them
+aligned with <https://www.cloudflare.com/ips-v4>. Keep the origin DNS records
+IPv4-only; Cloudflare can still serve IPv6 clients at its edge.
+
+Configure the Compose project to publish only Traefik's HTTP entrypoint at
+`127.0.0.1:8081:80`. Both routers must use the `web` entrypoint without their
+`tls=true` labels, since Caddy terminates HTTPS. The `server` container needs
+no published port. Use the modern Traefik load-balancer port labels for nginx
+(`80`) and the API (`8080`). No Compose file is managed by this flake.
+
+In Cloudflare, enable the orange cloud for the `claretformun.com` A record,
+and create proxied `www` and `api` CNAMEs pointing to `claretformun.com`. Set SSL/TLS
+encryption mode to **Full (strict)**. Forward WAN TCP 443 to
+`192.168.7.2:443`; port 80 is optional for HTTP-to-HTTPS redirects, and DNS-01
+certificate validation does not need either inbound port. Do not forward
+8081 or the API's container port.
+
 ## Cloudflare DDNS
 
 The native `cloudflare-ddns.service` updates the apex A records for
-`clareformun.com` and `memorialmedtech.ca` to the server's detected public IPv4.
+`claretformun.com` and `memorialmedtech.ca` to the server's detected public IPv4.
 It checks immediately on startup and every five minutes. Stopping the service
 does not delete the records. IPv6 updates are disabled; existing AAAA records
 are left unchanged. No `www` or other subdomains are managed.
@@ -198,7 +229,7 @@ records' proxy status, so enable the orange cloud for both existing A records
 in the Cloudflare dashboard before starting it.
 
 Create a separate API token with **Zone / DNS / Edit**, scoped only to
-`clareformun.com` and `memorialmedtech.ca`. Both zones must be managed by
+`claretformun.com` and `memorialmedtech.ca`. Both zones must be managed by
 Cloudflare. Keep the existing ACME token separate.
 
 Before rebuilding, create the credentials file directly on **sotetseg**:
