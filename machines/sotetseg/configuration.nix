@@ -5,10 +5,13 @@
     ./hardware-configuration.nix
     ../../modules/containers.nix
     ../../services/caddy
+    ../../services/cloudflare-ddns
     ../../services/plex
     ../../services/vaultwarden
     ../../services/vigil
   ];
+
+  time.timeZone = "America/St_Johns";
 
   networking = {
     hostName = "sotetseg";

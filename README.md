@@ -12,6 +12,7 @@ Minimal NixOS flake using **26.05**, the latest stable release at creation.
 - `home/evan.nix`: Evan's Home Manager configuration, applied with the system rebuild.
 - `modules/containers.nix`: shared Docker lifecycle and container scope settings.
 - `services/caddy/default.nix`: HTTPS reverse proxy with Cloudflare DNS validation.
+- `services/cloudflare-ddns/default.nix`: public IPv4 updates for Cloudflare DNS records.
 - `services/plex/default.nix`: Plex container managed by NixOS using Docker.
 - `services/vaultwarden/default.nix`: Vaultwarden container with persistent storage.
 - `services/vigil/default.nix`: daily Docker container updates using Vigil.
@@ -40,7 +41,7 @@ This scaffold uses systemd-boot on an Intel/AMD UEFI machine. Change `system` in
 3. Track the flake's files and generate the dependency lockfile:
 
    ```sh
-    git add .github/workflows/build.yaml flake.nix justfile machines/sotetseg home modules/containers.nix services/caddy services/plex services/vaultwarden services/vigil README.md
+    git add .github/workflows/build.yaml flake.nix justfile machines/sotetseg home modules/containers.nix services/caddy services/cloudflare-ddns services/plex services/vaultwarden services/vigil README.md
    nix --extra-experimental-features 'nix-command flakes' flake lock
    git add flake.lock
    ```
@@ -183,6 +184,54 @@ If initial issuance fails, Caddy may temporarily serve a self-signed certificate
 Fix the token/DNS issue and retry
 `sudo systemctl restart acme-order-renew-vaultwarden.home.evaan.dev`.
 Do not bypass certificate warnings.
+
+## Cloudflare DDNS
+
+The native `cloudflare-ddns.service` updates the apex A records for
+`clareformun.com` and `memorialmedtech.ca` to the server's detected public IPv4.
+It checks immediately on startup and every five minutes. Stopping the service
+does not delete the records. IPv6 updates are disabled; existing AAAA records
+are left unchanged. No `www` or other subdomains are managed.
+
+New records default to **Proxied** (orange cloud). The updater preserves existing
+records' proxy status, so enable the orange cloud for both existing A records
+in the Cloudflare dashboard before starting it.
+
+Create a separate API token with **Zone / DNS / Edit**, scoped only to
+`clareformun.com` and `memorialmedtech.ca`. Both zones must be managed by
+Cloudflare. Keep the existing ACME token separate.
+
+Before rebuilding, create the credentials file directly on **sotetseg**:
+
+```sh
+sudo install -d -m 700 -o root -g root /var/lib/secrets
+sudo touch /var/lib/secrets/cloudflare-ddns.env
+sudo chown root:root /var/lib/secrets/cloudflare-ddns.env
+sudo chmod 600 /var/lib/secrets/cloudflare-ddns.env
+sudo nano /var/lib/secrets/cloudflare-ddns.env
+```
+
+Its contents must be:
+
+```text
+CLOUDFLARE_API_TOKEN=your-cloudflare-api-token
+```
+
+This variable name differs from the ACME file's `CF_DNS_API_TOKEN`. Systemd
+reads the root-only file and supplies the environment to the unprivileged
+DDNS service; the token stays outside Git and the Nix store. Keep the file
+and token active for future updates.
+
+Track the module and rebuild, then check the logs:
+
+```sh
+git add services/cloudflare-ddns
+just sotetseg
+sudo journalctl -u cloudflare-ddns -n 50 --no-pager
+```
+
+DDNS only maintains DNS records. It does not configure Caddy sites, router
+port forwarding, or origin TLS for these public domains.
 
 ## Vaultwarden
 
