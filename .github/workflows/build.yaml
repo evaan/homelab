@@ -1,4 +1,4 @@
-name: Build sotetseg
+name: sotetseg
 
 on:
   push:

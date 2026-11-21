@@ -7,6 +7,7 @@
     ../../services/caddy
     ../../services/cloudflare-ddns
     ../../services/plex
+    ../../services/tailscale
     ../../services/vaultwarden
     ../../services/vigil
   ];
