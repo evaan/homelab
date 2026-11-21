@@ -8,6 +8,7 @@
     packages = with pkgs; [
       curl
       dnsutils
+      fastfetch
       fd
       git
       htop
@@ -34,6 +35,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    shellAliases.neofetch = "fastfetch";
     plugins = [
       {
         name = "powerlevel10k";

@@ -19,6 +19,10 @@
       }
     ];
     defaultGateway = "192.168.7.1";
+    nameservers = [
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
   };
 
   nix.settings.experimental-features = [
