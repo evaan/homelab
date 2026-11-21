@@ -141,10 +141,10 @@ route to its LAN IP.
 
 NixOS ACME obtains and renews a Let's Encrypt certificate for each hostname using
 Cloudflare DNS-01, then reloads Caddy. No custom Caddy plugin is needed. The
-`evaan.dev` and `claretformun.com` zones must be managed by Cloudflare. Create an
-API token with **Zone / DNS / Edit** and **Zone / Zone / Read**, scoped only to
-these two zones; do not use a global API key. If the existing token only covers
-`evaan.dev`, expand its zone scope before rebuilding.
+`evaan.dev`, `claretformun.com`, and `memorialmedtech.ca` zones must be managed by
+Cloudflare. Create an API token with **Zone / DNS / Edit** and **Zone / Zone /
+Read**, scoped only to these three zones; do not use a global API key. Expand
+the existing token's zone scope before rebuilding if necessary.
 
 Before rebuilding, create the secret file directly on **sotetseg**, never in
 this repository:
@@ -215,6 +215,38 @@ encryption mode to **Full (strict)**. Forward WAN TCP 443 to
 `192.168.7.2:443`; port 80 is optional for HTTP-to-HTTPS redirects, and DNS-01
 certificate validation does not need either inbound port. Do not forward
 8181 or the API's container port.
+
+### Public MemorialMedTech sites
+
+`memorialmedtech.ca`, `www.memorialmedtech.ca`, `app.memorialmedtech.ca`, and
+`demo.memorialmedtech.ca` all proxy to `http://127.0.0.1:8281`. They share the
+public sites' Cloudflare-only IPv4 allowlist and per-hostname ACME certificates.
+Add `memorialmedtech.ca` to the ACME token's zone permissions before rebuilding.
+
+The root `compose.yml` is a copy-out template for the independently managed
+MemorialMedTech project, not a NixOS-managed service. Copy it into the existing
+project directory alongside its build directories and `.env`, retaining the
+existing Compose project name. Traefik listens on `127.0.0.1:8281:80` with
+HTTP-only routers; Caddy handles public HTTPS. Traefik preserves the existing
+`/api` and `/ws` routes for the production and demo apps. Its Docker discovery
+is restricted to containers labelled `homelab.stack=memorialmedtech`, so this
+Traefik instance does not discover Claret's containers. The template can be
+removed from this repository after copying.
+
+The template preserves both PostgreSQL images and data mounts as supplied.
+Before deployment, back up both databases and pin each image to its currently
+running major version instead of leaving `postgres:alpine` floating. Do not
+switch major versions without a database migration. If both database services
+are already running, the proxy/app changes can be applied without recreating
+them from the project directory:
+
+```sh
+docker compose up -d --no-deps --build traefik webapp api webapp-demo api-demo website
+```
+
+Keep the `memorialmedtech.ca` A record proxied and create proxied `www`, `app`,
+and `demo` CNAMEs pointing to it. Use **Full (strict)** mode. The existing WAN
+TCP 443 forwarding to Caddy is sufficient; do not forward port 8281.
 
 ## Cloudflare DDNS
 
