@@ -17,7 +17,7 @@ Minimal NixOS flake using **26.05**, the latest stable release at creation.
 
 ## Set up
 
-This scaffold assumes an Intel/AMD UEFI machine. Change `system` in
+This scaffold uses systemd-boot on an Intel/AMD UEFI machine. Change `system` in
 `flake.nix` for ARM, or the bootloader settings for legacy BIOS.
 
 1. Verify the stored hardware configuration matches the target. The root and

@@ -120,11 +120,8 @@
     users.evan = import ../../home/evan.nix;
   };
 
-  boot.loader.grub = {
-    enable = true;
-    device = "nodev";
-    efiSupport = true;
-  };
+  boot.loader.grub.enable = false;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   system.stateVersion = "26.05";
