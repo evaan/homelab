@@ -26,12 +26,7 @@
       unzip
       wget
       (writeShellScriptBin "sotetseg" ''
-        exec /run/wrappers/bin/sudo /run/current-system/sw/bin/nixos-rebuild switch \
-          --flake github:evaan/homelab#sotetseg \
-          --refresh \
-          --recreate-lock-file \
-          --no-write-lock-file \
-          --print-build-logs
+        exec /run/wrappers/bin/sudo ${import ../modules/rebuild-script.nix { inherit pkgs; }}/bin/sotetseg-rebuild
       '')
     ];
   };

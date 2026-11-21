@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, pkgs, ... }:
 
 {
   system.autoUpgrade = {
@@ -8,9 +8,9 @@
     operation = "switch";
     dates = "04:40";
     allowReboot = false;
-    flags = [
-      "--recreate-lock-file"
-      "--no-write-lock-file"
-    ];
   };
+
+  systemd.services.nixos-upgrade.script = lib.mkForce ''
+    exec ${import ./rebuild-script.nix { inherit pkgs; }}/bin/sotetseg-rebuild
+  '';
 }
