@@ -6,6 +6,7 @@
     labels."dev.vigil.enable" = "true";
     environment = {
       DOMAIN = "https://vaultwarden.home.evaan.dev";
+      IP_HEADER = "X-Forwarded-For";
       TZ = "America/St_Johns";
     };
     volumes = [
