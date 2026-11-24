@@ -72,6 +72,8 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  environment.systemPackages = [ pkgs.intel-gpu-tools ];
+
   hardware = {
     graphics = {
       enable = true;
