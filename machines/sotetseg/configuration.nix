@@ -70,8 +70,6 @@
 
   virtualisation.docker.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
-
   environment.systemPackages = [ pkgs.intel-gpu-tools ];
 
   hardware = {
@@ -79,20 +77,9 @@
       enable = true;
       extraPackages = [ pkgs.intel-media-driver ];
     };
-    nvidia = {
-      branch = "legacy_580";
-      open = false;
-      gsp.enable = false;
-      nvidiaSettings = false;
-    };
-    nvidia-container-toolkit.enable = true;
   };
 
-  boot.kernelModules = [
-    "i915"
-    "nvidia"
-    "nvidia_uvm"
-  ];
+  boot.kernelModules = [ "i915" ];
 
   fileSystems = {
     "/mnt/arceuus/Movies" = {
