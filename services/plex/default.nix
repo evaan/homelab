@@ -19,8 +19,7 @@
       VERSION = "docker";
     };
     devices = [
-      "/dev/dri/intel-card:/dev/dri/card0"
-      "/dev/dri/intel-render:/dev/dri/renderD128"
+      "/dev/dri:/dev/dri"
     ];
     volumes = [
       "plex-config:/config"
