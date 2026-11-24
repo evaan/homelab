@@ -6,6 +6,7 @@
 
 - [Caddy](services/caddy) — HTTPS reverse proxy.
 - [Cloudflare DDNS](services/cloudflare-ddns) — Dynamic DNS updates.
+- [Grafana](services/grafana) — Dashboards at `home.evaan.dev`, with persistent storage in the `grafana-data` Docker volume.
 - [Plex](services/plex) — Media server.
 - [Tailscale](services/tailscale) — VPN, exit node, and subnet routing for `192.168.7.0/24`.
 - [Vaultwarden](services/vaultwarden) — Password manager.

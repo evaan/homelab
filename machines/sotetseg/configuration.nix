@@ -7,6 +7,7 @@
     ../../modules/containers.nix
     ../../services/caddy
     ../../services/cloudflare-ddns
+    ../../services/grafana
     ../../services/plex
     ../../services/tailscale
     ../../services/vaultwarden

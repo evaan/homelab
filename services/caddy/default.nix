@@ -2,6 +2,7 @@
 
 let
   privateSites = {
+    "home.evaan.dev" = "reverse_proxy 127.0.0.1:3000";
     "vaultwarden.home.evaan.dev" = "reverse_proxy 127.0.0.1:8000";
     "truenas.home.evaan.dev" = "reverse_proxy http://192.168.7.3:80";
     "pikvm.home.evaan.dev" = "reverse_proxy http://192.168.7.7:80";
