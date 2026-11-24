@@ -3,11 +3,6 @@
 {
   networking.firewall.allowedTCPPorts = [ 32400 ];
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="drm", KERNEL=="card[0-9]*", KERNELS=="0000:00:02.0", SYMLINK+="dri/intel-card"
-    SUBSYSTEM=="drm", KERNEL=="renderD[0-9]*", KERNELS=="0000:00:02.0", SYMLINK+="dri/intel-render"
-  '';
-
   systemd.services.docker-plex.unitConfig.RequiresMountsFor = [
     ''"/mnt/arceuus/TV Shows"''
     "/mnt/arceuus/Movies"
