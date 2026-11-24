@@ -18,6 +18,9 @@
       TZ = "America/St_Johns";
       VERSION = "docker";
     };
+    devices = [
+      "/dev/dri:/dev/dri"
+    ];
     volumes = [
       "plex-config:/config"
       "plex-transcode:/transcode"
