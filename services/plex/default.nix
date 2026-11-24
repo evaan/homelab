@@ -19,7 +19,8 @@
       VERSION = "docker";
     };
     devices = [
-      "/dev/dri:/dev/dri"
+      "/dev/dri/by-path/pci-0000:00:02.0-card:/dev/dri/card0"
+      "/dev/dri/by-path/pci-0000:00:02.0-render:/dev/dri/renderD128"
     ];
     volumes = [
       "plex-config:/config"
