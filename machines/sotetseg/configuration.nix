@@ -73,7 +73,10 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware = {
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      extraPackages = [ pkgs.intel-media-driver ];
+    };
     nvidia = {
       branch = "legacy_580";
       open = false;
@@ -84,6 +87,7 @@
   };
 
   boot.kernelModules = [
+    "i915"
     "nvidia"
     "nvidia_uvm"
   ];
