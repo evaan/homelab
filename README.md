@@ -4,6 +4,11 @@
 [![cerberus](https://github.com/evaan/homelab/actions/workflows/cerberus.yaml/badge.svg)](https://github.com/evaan/homelab/actions/workflows/cerberus.yaml)
 
 ```mermaid
+---
+config:
+  flowchart:
+    rankSpacing: 180
+---
 flowchart TB
     sotetseg["Sotetseg"]
     cerberus["Cerberus"]
