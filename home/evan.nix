@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, osConfig, pkgs, ... }:
 
 {
   home = {
@@ -50,6 +50,7 @@
         type = "disk";
         format = "{size-used} / {size-total} ({size-percentage})";
       }
+    ] ++ lib.optionals (osConfig.networking.hostName == "sotetseg") [
       {
         type = "disk";
         folders = "/mnt/arceuus/Movies";
@@ -57,6 +58,7 @@
         key = "Disk (arceuus)";
         format = "{size-used} / {size-total} ({size-percentage})";
       }
+    ] ++ [
       "localip"
       "break"
       "colors"

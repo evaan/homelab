@@ -13,6 +13,7 @@
     nixosConfigurations.cerberus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        home-manager.nixosModules.home-manager
         ./machines/cerberus/configuration.nix
       ];
     };

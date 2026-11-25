@@ -60,7 +60,16 @@
     ];
   };
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = false;
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.evan = import ../../home/evan.nix;
+  };
 
   security.sudo = {
     enable = true;
