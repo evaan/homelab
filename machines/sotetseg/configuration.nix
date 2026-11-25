@@ -6,10 +6,8 @@
     ../../modules/auto-upgrade.nix
     ../../modules/caddy-backends.nix
     ../../modules/containers.nix
-    ../../services/cloudflare-ddns
     ../../services/grafana
     ../../services/plex
-    ../../services/tailscale
     ../../services/vaultwarden
     ../../services/vigil
   ];

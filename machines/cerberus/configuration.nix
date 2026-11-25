@@ -4,6 +4,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../services/caddy
+    ../../services/cloudflare-ddns
+    ../../services/tailscale
   ];
 
   time.timeZone = "America/St_Johns";
