@@ -2,8 +2,8 @@
 
 let
   privateSites = {
-    "home.evaan.dev" = "reverse_proxy 127.0.0.1:3000";
-    "vaultwarden.home.evaan.dev" = "reverse_proxy 127.0.0.1:8000";
+    "home.evaan.dev" = "reverse_proxy 192.168.7.2:3000";
+    "vaultwarden.home.evaan.dev" = "reverse_proxy 192.168.7.2:8000";
     "truenas.home.evaan.dev" = "reverse_proxy http://192.168.7.3:80";
     "pikvm.home.evaan.dev" = "reverse_proxy http://192.168.7.7:80";
     "router.home.evaan.dev" = "redir http://192.168.7.1:80{uri} permanent";
@@ -17,11 +17,11 @@ let
   };
 
   publicSites = {
-    "claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
-    "www.claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
-    "api.claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
-    "app.memorialmedtech.ca" = "reverse_proxy http://127.0.0.1:8281";
-    "inventory.evaan.dev" = "reverse_proxy http://127.0.0.1:8381";
+    "claretformun.com" = "reverse_proxy http://192.168.7.2:8181";
+    "www.claretformun.com" = "reverse_proxy http://192.168.7.2:8181";
+    "api.claretformun.com" = "reverse_proxy http://192.168.7.2:8181";
+    "app.memorialmedtech.ca" = "reverse_proxy http://192.168.7.2:8281";
+    "inventory.evaan.dev" = "reverse_proxy http://192.168.7.2:8381";
   };
 
   privateNetworks = [

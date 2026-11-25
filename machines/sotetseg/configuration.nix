@@ -4,8 +4,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/auto-upgrade.nix
+    ../../modules/caddy-backends.nix
     ../../modules/containers.nix
-    ../../services/caddy
     ../../services/cloudflare-ddns
     ../../services/grafana
     ../../services/plex

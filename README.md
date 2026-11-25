@@ -5,7 +5,6 @@
 
 ## Sotetseg
 
-- [Caddy](services/caddy) — HTTPS reverse proxy.
 - [Cloudflare DDNS](services/cloudflare-ddns) — Dynamic DNS updates.
 - [Grafana](services/grafana) — Dashboards at `home.evaan.dev`, with persistent storage in the `grafana-data` Docker volume.
 - [Plex](services/plex) — Media server.
@@ -15,4 +14,4 @@
 
 ## Cerberus
 
-Base NixOS host; no application services yet.
+- [Caddy](services/caddy) — HTTPS reverse proxy.

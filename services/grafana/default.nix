@@ -14,6 +14,6 @@
     volumes = [
       "grafana-data:/var/lib/grafana"
     ];
-    ports = [ "127.0.0.1:3000:3000" ];
+    ports = [ "192.168.7.2:3000:3000" ];
   };
 }

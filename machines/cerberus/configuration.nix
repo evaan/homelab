@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../services/caddy
   ];
 
   time.timeZone = "America/St_Johns";

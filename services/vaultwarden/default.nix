@@ -12,6 +12,6 @@
     volumes = [
       "vaultwarden-data:/data"
     ];
-    ports = [ "127.0.0.1:8000:80" ];
+    ports = [ "192.168.7.2:8000:80" ];
   };
 }
