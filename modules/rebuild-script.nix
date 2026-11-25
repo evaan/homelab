@@ -1,13 +1,18 @@
-{ pkgs }:
+{ pkgs, hostName }:
 
 pkgs.writeShellApplication {
-  name = "sotetseg-rebuild";
+  name = "${hostName}-rebuild";
   runtimeInputs = with pkgs; [
     coreutils
     jq
     nix
   ];
   text = ''
+    if [[ "$(uname -n)" != "${hostName}" ]]; then
+      echo "This rebuild command is only for ${hostName}." >&2
+      exit 1
+    fi
+
     workdir="$(mktemp -d)"
     trap 'rm -rf -- "$workdir"' EXIT
 
@@ -16,7 +21,7 @@ pkgs.writeShellApplication {
     chmod -R u+w "$workdir"
 
     /run/current-system/sw/bin/nixos-rebuild switch \
-      --flake "$workdir#sotetseg" \
+      --flake "$workdir#${hostName}" \
       --no-update-lock-file \
       --print-build-logs
   '';

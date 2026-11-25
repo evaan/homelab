@@ -25,9 +25,6 @@
       traceroute
       unzip
       wget
-      (writeShellScriptBin "sotetseg" ''
-        exec /run/wrappers/bin/sudo ${import ../modules/rebuild-script.nix { inherit pkgs; }}/bin/sotetseg-rebuild
-      '')
     ];
   };
 

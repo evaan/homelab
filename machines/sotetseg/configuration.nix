@@ -81,7 +81,15 @@
 
   virtualisation.docker.enable = true;
 
-  environment.systemPackages = [ pkgs.intel-gpu-tools ];
+  environment.systemPackages = [
+    pkgs.intel-gpu-tools
+    (pkgs.writeShellScriptBin "sotetseg" ''
+      exec /run/wrappers/bin/sudo ${import ../../modules/rebuild-script.nix {
+        inherit pkgs;
+        hostName = "sotetseg";
+      }}/bin/sotetseg-rebuild
+    '')
+  ];
 
   hardware = {
     graphics = {

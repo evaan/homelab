@@ -1,8 +1,9 @@
 # Homelab
 
-[![sotetseg](https://github.com/evaan/homelab/actions/workflows/build.yaml/badge.svg)](https://github.com/evaan/homelab/actions/workflows/build.yaml)
+[![sotetseg](https://github.com/evaan/homelab/actions/workflows/sotetseg.yaml/badge.svg)](https://github.com/evaan/homelab/actions/workflows/sotetseg.yaml)
+[![cerberus](https://github.com/evaan/homelab/actions/workflows/cerberus.yaml/badge.svg)](https://github.com/evaan/homelab/actions/workflows/cerberus.yaml)
 
-## Services
+## Sotetseg
 
 - [Caddy](services/caddy) — HTTPS reverse proxy.
 - [Cloudflare DDNS](services/cloudflare-ddns) — Dynamic DNS updates.
@@ -11,3 +12,7 @@
 - [Tailscale](services/tailscale) — VPN, exit node, and subnet routing for `192.168.7.0/24`.
 - [Vaultwarden](services/vaultwarden) — Password manager.
 - [Vigil](services/vigil) — Automatic container updates.
+
+## Cerberus
+
+Base NixOS host; no application services yet.

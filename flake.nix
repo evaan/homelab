@@ -10,6 +10,13 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }: {
+    nixosConfigurations.cerberus = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./machines/cerberus/configuration.nix
+      ];
+    };
+
     nixosConfigurations.sotetseg = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [

@@ -1,9 +1,9 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   system.autoUpgrade = {
     enable = true;
-    flake = "github:evaan/homelab#sotetseg";
+    flake = "github:evaan/homelab#${config.networking.hostName}";
     upgrade = false;
     operation = "switch";
     dates = "04:40";
@@ -11,6 +11,9 @@
   };
 
   systemd.services.nixos-upgrade.script = lib.mkForce ''
-    exec ${import ./rebuild-script.nix { inherit pkgs; }}/bin/sotetseg-rebuild
+    exec ${import ./rebuild-script.nix {
+      inherit pkgs;
+      hostName = config.networking.hostName;
+    }}/bin/${config.networking.hostName}-rebuild
   '';
 }
