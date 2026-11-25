@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../services/adguardhome
     ../../services/caddy
     ../../services/cloudflare-ddns
     ../../services/tailscale
