@@ -20,10 +20,7 @@ let
     "claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
     "www.claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
     "api.claretformun.com" = "reverse_proxy http://127.0.0.1:8181";
-    "memorialmedtech.ca" = "reverse_proxy http://127.0.0.1:8281";
-    "www.memorialmedtech.ca" = "reverse_proxy http://127.0.0.1:8281";
     "app.memorialmedtech.ca" = "reverse_proxy http://127.0.0.1:8281";
-    "demo.memorialmedtech.ca" = "reverse_proxy http://127.0.0.1:8281";
     "inventory.evaan.dev" = "reverse_proxy http://127.0.0.1:8381";
   };
 
