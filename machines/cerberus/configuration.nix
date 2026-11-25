@@ -3,10 +3,13 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../modules/auto-upgrade.nix
+    ../../modules/containers.nix
     ../../services/adguardhome
     ../../services/caddy
     ../../services/cloudflare-ddns
     ../../services/tailscale
+    ../../services/vigil
   ];
 
   time.timeZone = "America/St_Johns";
@@ -67,6 +70,11 @@
   programs.zsh = {
     enable = true;
     enableCompletion = false;
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings.ip-forward-no-drop = true;
   };
 
   home-manager = {

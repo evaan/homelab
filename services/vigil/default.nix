@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   virtualisation.oci-containers.containers.vigil = {
@@ -7,7 +7,7 @@
     environment = {
       TZ = "America/St_Johns";
       VIGIL_LABEL_ENABLE = "true";
-      VIGIL_SCOPE = "sotetseg-flake";
+      VIGIL_SCOPE = "${config.networking.hostName}-flake";
       VIGIL_SCHEDULE = "0 0 6 * * *";
     };
     volumes = [

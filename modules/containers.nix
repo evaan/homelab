@@ -5,7 +5,7 @@
     type = lib.types.attrsOf (lib.types.submodule {
       config = {
         autoRemoveOnStop = lib.mkDefault false;
-        labels."dev.vigil.scope" = lib.mkDefault "sotetseg-flake";
+        labels."dev.vigil.scope" = lib.mkDefault "${config.networking.hostName}-flake";
         extraOptions = [
           "--detach"
           "--restart=unless-stopped"
