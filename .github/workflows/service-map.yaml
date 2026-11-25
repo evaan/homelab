@@ -86,7 +86,7 @@ jobs:
                   for host, services in hosts.items()
               )
               ET.SubElement(svg, "style").text = """
-                  svg { background: #ffffff; color: #1f2328; }
+                  svg { color: #1f2328; }
                   rect { fill: #f6f8fa; stroke: #59636e; }
                   .host { fill: #ddf4ff; stroke: #0969da; }
                   path { fill: none; stroke: #59636e; stroke-width: 1.5; }
@@ -94,7 +94,7 @@ jobs:
                   text { fill: currentColor; font: 14px system-ui, sans-serif; }
                   .host-label { font-weight: 600; }
                   @media (prefers-color-scheme: dark) {
-                      svg { background: #0d1117; color: #f0f6fc; }
+                      svg { color: #f0f6fc; }
                       rect { fill: #151b23; stroke: #9198a1; }
                       .host { fill: #121d2f; stroke: #4493f8; }
                       path { stroke: #9198a1; }
