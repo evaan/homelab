@@ -83,6 +83,10 @@ in
     }) (privateSites // publicSites);
   };
 
+  systemd.services = lib.mapAttrs' (name: _: lib.nameValuePair "acme-order-renew-${name}" {
+    environment.LEGO_DISABLE_CNAME_SUPPORT = "true";
+  }) privateSites;
+
   systemd.tmpfiles.rules = [
     "d /var/lib/secrets 0700 root root -"
   ];
