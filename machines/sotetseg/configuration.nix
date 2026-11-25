@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -36,6 +36,17 @@
     "nix-command"
     "flakes"
   ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+  };
+
+  systemd.services.nix-gc.preStart = ''
+    ${config.nix.package}/bin/nix-env \
+      --profile /nix/var/nix/profiles/system \
+      --delete-generations +3
+  '';
 
   nixpkgs.config.allowUnfree = true;
 
@@ -127,6 +138,7 @@
 
   boot.loader.grub.enable = false;
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 3;
   boot.loader.efi.canTouchEfiVariables = true;
 
   system.stateVersion = "26.05";
