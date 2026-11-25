@@ -1,0 +1,65 @@
+name: service map
+
+on:
+  push:
+    paths:
+      - "machines/**"
+      - "services/**"
+      - "scripts/generate-service-map.py"
+      - "scripts/test_service_map.py"
+      - ".github/workflows/service-map.yaml"
+  pull_request:
+    paths:
+      - "machines/**"
+      - "services/**"
+      - "scripts/generate-service-map.py"
+      - "scripts/test_service_map.py"
+      - ".github/workflows/service-map.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: service-map-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Test generator
+        run: python3 -m unittest discover -s scripts -p 'test_*.py'
+
+      - name: Generate service map
+        run: python3 scripts/generate-service-map.py
+
+      - name: Upload service map
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: build/service-map
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
+    needs: generate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Publish service map
+        id: deployment
+        uses: actions/deploy-pages@v4
