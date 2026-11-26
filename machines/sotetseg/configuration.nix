@@ -8,6 +8,8 @@
     ../../modules/containers.nix
     ../../services/grafana
     ../../services/plex
+    ../../services/postgres
+    ../../services/redis
     ../../services/vaultwarden
     ../../services/vigil
   ];
